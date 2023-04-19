@@ -1,0 +1,26 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0308
+header_name {.h}
+code_name {.cxx}
+class Hello {open
+} {
+  Function {Hello()} {open
+  } {
+    Fl_Window win {
+      label {你好世界} open
+      xywh {58 111 322 291} type Double visible
+    } {
+      Fl_Group {} {open selected
+        xywh {0 1 320 284}
+      } {
+        Fl_Box frame {
+          xywh {5 5 315 280} labeltype NO_LABEL
+        }
+      }
+    }
+  }
+  Function {show(int argc, char**argv)} {open
+  } {
+    code {win->show(argc, argv);} {}
+  }
+}

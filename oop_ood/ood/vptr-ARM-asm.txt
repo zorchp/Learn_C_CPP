@@ -1,0 +1,1312 @@
+
+vptr_vtb_test.out:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100002f24 <__ZN1A6vfunc1Ev>:
+100002f24: ff 83 00 d1 	sub	sp, sp, #32
+100002f28: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100002f2c: fd 43 00 91 	add	x29, sp, #16
+100002f30: e0 07 00 f9 	str	x0, [sp, #8]
+100002f34: 00 00 00 d0 	adrp	x0, 0x100004000 <__ZN1A6vfunc1Ev+0x18>
+100002f38: 00 38 40 f9 	ldr	x0, [x0, #112]
+100002f3c: 01 00 00 b0 	adrp	x1, 0x100003000 <__ZN1A6vfunc1Ev+0x1c>
+100002f40: 21 80 3b 91 	add	x1, x1, #3808
+100002f44: ba 03 00 94 	bl	0x100003e2c <_strlen+0x100003e2c>
+100002f48: 01 00 00 d0 	adrp	x1, 0x100004000 <__ZN1A6vfunc1Ev+0x2c>
+100002f4c: 21 3c 40 f9 	ldr	x1, [x1, #120]
+100002f50: 16 00 00 94 	bl	0x100002fa8 <__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E>
+100002f54: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100002f58: ff 83 00 91 	add	sp, sp, #32
+100002f5c: c0 03 5f d6 	ret
+
+0000000100002f60 <__ZNSt3__1lsINS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc>:
+100002f60: ff c3 00 d1 	sub	sp, sp, #48
+100002f64: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+100002f68: fd 83 00 91 	add	x29, sp, #32
+100002f6c: a0 83 1f f8 	stur	x0, [x29, #-8]
+100002f70: e1 0b 00 f9 	str	x1, [sp, #16]
+100002f74: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100002f78: e8 07 00 f9 	str	x8, [sp, #8]
+100002f7c: e8 0b 40 f9 	ldr	x8, [sp, #16]
+100002f80: e8 03 00 f9 	str	x8, [sp]
+100002f84: e0 0b 40 f9 	ldr	x0, [sp, #16]
+100002f88: 85 03 00 94 	bl	0x100003d9c <_strlen+0x100003d9c>
+100002f8c: e1 03 40 f9 	ldr	x1, [sp]
+100002f90: e2 03 00 aa 	mov	x2, x0
+100002f94: e0 07 40 f9 	ldr	x0, [sp, #8]
+100002f98: 99 03 00 94 	bl	0x100003dfc <_strlen+0x100003dfc>
+100002f9c: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100002fa0: ff c3 00 91 	add	sp, sp, #48
+100002fa4: c0 03 5f d6 	ret
+
+0000000100002fa8 <__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E>:
+100002fa8: ff 83 00 d1 	sub	sp, sp, #32
+100002fac: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100002fb0: fd 43 00 91 	add	x29, sp, #16
+100002fb4: e0 07 00 f9 	str	x0, [sp, #8]
+100002fb8: e1 03 00 f9 	str	x1, [sp]
+100002fbc: e0 07 40 f9 	ldr	x0, [sp, #8]
+100002fc0: e8 03 40 f9 	ldr	x8, [sp]
+100002fc4: 00 01 3f d6 	blr	x8
+100002fc8: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100002fcc: ff 83 00 91 	add	sp, sp, #32
+100002fd0: c0 03 5f d6 	ret
+
+0000000100002fd4 <__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_>:
+100002fd4: ff 83 00 d1 	sub	sp, sp, #32
+100002fd8: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100002fdc: fd 43 00 91 	add	x29, sp, #16
+100002fe0: e0 07 00 f9 	str	x0, [sp, #8]
+100002fe4: e8 07 40 f9 	ldr	x8, [sp, #8]
+100002fe8: e8 03 00 f9 	str	x8, [sp]
+100002fec: e8 07 40 f9 	ldr	x8, [sp, #8]
+100002ff0: 09 01 40 f9 	ldr	x9, [x8]
+100002ff4: 29 81 5e f8 	ldur	x9, [x9, #-24]
+100002ff8: 00 01 09 8b 	add	x0, x8, x9
+100002ffc: 41 01 80 52 	mov	w1, #10
+100003000: 11 03 00 94 	bl	0x100003c44 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc>
+100003004: e8 03 00 aa 	mov	x8, x0
+100003008: e0 03 40 f9 	ldr	x0, [sp]
+10000300c: 01 1d 00 13 	sxtb	w1, w8
+100003010: 6c 03 00 94 	bl	0x100003dc0 <_strlen+0x100003dc0>
+100003014: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003018: 6d 03 00 94 	bl	0x100003dcc <_strlen+0x100003dcc>
+10000301c: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003020: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003024: ff 83 00 91 	add	sp, sp, #32
+100003028: c0 03 5f d6 	ret
+
+000000010000302c <__ZN1B6vfunc1Ev>:
+10000302c: ff 83 00 d1 	sub	sp, sp, #32
+100003030: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003034: fd 43 00 91 	add	x29, sp, #16
+100003038: e0 07 00 f9 	str	x0, [sp, #8]
+10000303c: 00 00 00 b0 	adrp	x0, 0x100004000 <__ZN1B6vfunc1Ev+0x14>
+100003040: 00 38 40 f9 	ldr	x0, [x0, #112]
+100003044: 01 00 00 90 	adrp	x1, 0x100003000 <__ZN1B6vfunc1Ev+0x18>
+100003048: 21 b0 3b 91 	add	x1, x1, #3820
+10000304c: 78 03 00 94 	bl	0x100003e2c <_strlen+0x100003e2c>
+100003050: 01 00 00 b0 	adrp	x1, 0x100004000 <__ZN1B6vfunc1Ev+0x28>
+100003054: 21 3c 40 f9 	ldr	x1, [x1, #120]
+100003058: d4 ff ff 97 	bl	0x100002fa8 <__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E>
+10000305c: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003060: ff 83 00 91 	add	sp, sp, #32
+100003064: c0 03 5f d6 	ret
+
+0000000100003068 <__Z5test1v>:
+100003068: ff 43 01 d1 	sub	sp, sp, #80
+10000306c: fd 7b 04 a9 	stp	x29, x30, [sp, #64]
+100003070: fd 03 01 91 	add	x29, sp, #64
+100003074: a0 23 00 d1 	sub	x0, x29, #8
+100003078: 24 00 00 94 	bl	0x100003108 <__ZN1AC1Ev>
+10000307c: 00 00 00 b0 	adrp	x0, 0x100004000 <__Z5test1v+0x18>
+100003080: 00 38 40 f9 	ldr	x0, [x0, #112]
+100003084: 01 01 80 d2 	mov	x1, #8
+100003088: 5a 03 00 94 	bl	0x100003df0 <_strlen+0x100003df0>
+10000308c: 01 00 00 b0 	adrp	x1, 0x100004000 <__Z5test1v+0x28>
+100003090: 21 3c 40 f9 	ldr	x1, [x1, #120]
+100003094: c5 ff ff 97 	bl	0x100002fa8 <__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E>
+100003098: a0 63 00 d1 	sub	x0, x29, #24
+10000309c: e0 0b 00 f9 	str	x0, [sp, #16]
+1000030a0: 25 00 00 94 	bl	0x100003134 <__ZN1BC1Ev>
+1000030a4: e1 0b 40 f9 	ldr	x1, [sp, #16]
+1000030a8: e0 83 00 91 	add	x0, sp, #32
+1000030ac: e0 03 00 f9 	str	x0, [sp]
+1000030b0: 2c 00 00 94 	bl	0x100003160 <__ZN1AC1ERKS_>
+1000030b4: e0 03 40 f9 	ldr	x0, [sp]
+1000030b8: 9b ff ff 97 	bl	0x100002f24 <__ZN1A6vfunc1Ev>
+1000030bc: 00 02 80 d2 	mov	x0, #16
+1000030c0: 61 03 00 94 	bl	0x100003e44 <_strlen+0x100003e44>
+1000030c4: e0 07 00 f9 	str	x0, [sp, #8]
+1000030c8: 1b 00 00 94 	bl	0x100003134 <__ZN1BC1Ev>
+1000030cc: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000030d0: e0 0f 00 f9 	str	x0, [sp, #24]
+1000030d4: e0 0f 40 f9 	ldr	x0, [sp, #24]
+1000030d8: 08 00 40 f9 	ldr	x8, [x0]
+1000030dc: 08 01 40 f9 	ldr	x8, [x8]
+1000030e0: 00 01 3f d6 	blr	x8
+1000030e4: e8 0b 40 f9 	ldr	x8, [sp, #16]
+1000030e8: e8 0f 00 f9 	str	x8, [sp, #24]
+1000030ec: e0 0f 40 f9 	ldr	x0, [sp, #24]
+1000030f0: 08 00 40 f9 	ldr	x8, [x0]
+1000030f4: 08 01 40 f9 	ldr	x8, [x8]
+1000030f8: 00 01 3f d6 	blr	x8
+1000030fc: fd 7b 44 a9 	ldp	x29, x30, [sp, #64]
+100003100: ff 43 01 91 	add	sp, sp, #80
+100003104: c0 03 5f d6 	ret
+
+0000000100003108 <__ZN1AC1Ev>:
+100003108: ff 83 00 d1 	sub	sp, sp, #32
+10000310c: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003110: fd 43 00 91 	add	x29, sp, #16
+100003114: e0 07 00 f9 	str	x0, [sp, #8]
+100003118: e0 07 40 f9 	ldr	x0, [sp, #8]
+10000311c: e0 03 00 f9 	str	x0, [sp]
+100003120: 2a 00 00 94 	bl	0x1000031c8 <__ZN1AC2Ev>
+100003124: e0 03 40 f9 	ldr	x0, [sp]
+100003128: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+10000312c: ff 83 00 91 	add	sp, sp, #32
+100003130: c0 03 5f d6 	ret
+
+0000000100003134 <__ZN1BC1Ev>:
+100003134: ff 83 00 d1 	sub	sp, sp, #32
+100003138: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+10000313c: fd 43 00 91 	add	x29, sp, #16
+100003140: e0 07 00 f9 	str	x0, [sp, #8]
+100003144: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003148: e0 03 00 f9 	str	x0, [sp]
+10000314c: 28 00 00 94 	bl	0x1000031ec <__ZN1BC2Ev>
+100003150: e0 03 40 f9 	ldr	x0, [sp]
+100003154: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003158: ff 83 00 91 	add	sp, sp, #32
+10000315c: c0 03 5f d6 	ret
+
+0000000100003160 <__ZN1AC1ERKS_>:
+100003160: ff c3 00 d1 	sub	sp, sp, #48
+100003164: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+100003168: fd 83 00 91 	add	x29, sp, #32
+10000316c: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003170: e1 0b 00 f9 	str	x1, [sp, #16]
+100003174: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003178: e0 07 00 f9 	str	x0, [sp, #8]
+10000317c: e1 0b 40 f9 	ldr	x1, [sp, #16]
+100003180: 2c 00 00 94 	bl	0x100003230 <__ZN1AC2ERKS_>
+100003184: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003188: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+10000318c: ff c3 00 91 	add	sp, sp, #48
+100003190: c0 03 5f d6 	ret
+
+0000000100003194 <_main>:
+100003194: ff c3 00 d1 	sub	sp, sp, #48
+100003198: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+10000319c: fd 83 00 91 	add	x29, sp, #32
+1000031a0: 08 00 80 52 	mov	w8, #0
+1000031a4: e8 0f 00 b9 	str	w8, [sp, #12]
+1000031a8: bf c3 1f b8 	stur	wzr, [x29, #-4]
+1000031ac: a0 83 1f b8 	stur	w0, [x29, #-8]
+1000031b0: e1 0b 00 f9 	str	x1, [sp, #16]
+1000031b4: ad ff ff 97 	bl	0x100003068 <__Z5test1v>
+1000031b8: e0 0f 40 b9 	ldr	w0, [sp, #12]
+1000031bc: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+1000031c0: ff c3 00 91 	add	sp, sp, #48
+1000031c4: c0 03 5f d6 	ret
+
+00000001000031c8 <__ZN1AC2Ev>:
+1000031c8: ff 43 00 d1 	sub	sp, sp, #16
+1000031cc: 08 00 00 b0 	adrp	x8, 0x100004000 <__ZN1AC2Ev+0x8>
+1000031d0: 08 61 03 91 	add	x8, x8, #216
+1000031d4: 08 41 00 91 	add	x8, x8, #16
+1000031d8: e0 07 00 f9 	str	x0, [sp, #8]
+1000031dc: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000031e0: 08 00 00 f9 	str	x8, [x0]
+1000031e4: ff 43 00 91 	add	sp, sp, #16
+1000031e8: c0 03 5f d6 	ret
+
+00000001000031ec <__ZN1BC2Ev>:
+1000031ec: ff c3 00 d1 	sub	sp, sp, #48
+1000031f0: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+1000031f4: fd 83 00 91 	add	x29, sp, #32
+1000031f8: 08 00 00 b0 	adrp	x8, 0x100004000 <__ZN1BC2Ev+0x10>
+1000031fc: 08 01 04 91 	add	x8, x8, #256
+100003200: 08 41 00 91 	add	x8, x8, #16
+100003204: e8 0b 00 f9 	str	x8, [sp, #16]
+100003208: a0 83 1f f8 	stur	x0, [x29, #-8]
+10000320c: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003210: e0 07 00 f9 	str	x0, [sp, #8]
+100003214: ed ff ff 97 	bl	0x1000031c8 <__ZN1AC2Ev>
+100003218: e0 07 40 f9 	ldr	x0, [sp, #8]
+10000321c: e8 0b 40 f9 	ldr	x8, [sp, #16]
+100003220: 08 00 00 f9 	str	x8, [x0]
+100003224: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100003228: ff c3 00 91 	add	sp, sp, #48
+10000322c: c0 03 5f d6 	ret
+
+0000000100003230 <__ZN1AC2ERKS_>:
+100003230: ff 43 00 d1 	sub	sp, sp, #16
+100003234: 08 00 00 b0 	adrp	x8, 0x100004000 <__ZN1AC2ERKS_+0x8>
+100003238: 08 61 03 91 	add	x8, x8, #216
+10000323c: 08 41 00 91 	add	x8, x8, #16
+100003240: e0 07 00 f9 	str	x0, [sp, #8]
+100003244: e1 03 00 f9 	str	x1, [sp]
+100003248: e0 07 40 f9 	ldr	x0, [sp, #8]
+10000324c: 08 00 00 f9 	str	x8, [x0]
+100003250: ff 43 00 91 	add	sp, sp, #16
+100003254: c0 03 5f d6 	ret
+
+0000000100003258 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m>:
+100003258: ff 83 02 d1 	sub	sp, sp, #160
+10000325c: fd 7b 09 a9 	stp	x29, x30, [sp, #144]
+100003260: fd 43 02 91 	add	x29, sp, #144
+100003264: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003268: a1 03 1f f8 	stur	x1, [x29, #-16]
+10000326c: a2 83 1e f8 	stur	x2, [x29, #-24]
+100003270: a1 83 5f f8 	ldur	x1, [x29, #-8]
+100003274: a0 a3 00 d1 	sub	x0, x29, #40
+100003278: d8 02 00 94 	bl	0x100003dd8 <_strlen+0x100003dd8>
+10000327c: 01 00 00 14 	b	0x100003280 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x28>
+100003280: a0 a3 00 d1 	sub	x0, x29, #40
+100003284: 78 00 00 94 	bl	0x100003464 <__ZNKSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentrycvbEv>
+100003288: e0 47 00 b9 	str	w0, [sp, #68]
+10000328c: 01 00 00 14 	b	0x100003290 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x38>
+100003290: e8 47 40 b9 	ldr	w8, [sp, #68]
+100003294: e8 0b 00 36 	tbz	w8, #0, 0x100003410 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1b8>
+100003298: 01 00 00 14 	b	0x10000329c <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x44>
+10000329c: a1 83 5f f8 	ldur	x1, [x29, #-8]
+1000032a0: e0 23 01 91 	add	x0, sp, #72
+1000032a4: fc 00 00 94 	bl	0x100003694 <__ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC1ERNS_13basic_ostreamIcS2_EE>
+1000032a8: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000032ac: e8 1f 00 f9 	str	x8, [sp, #56]
+1000032b0: a8 83 5f f8 	ldur	x8, [x29, #-8]
+1000032b4: 09 01 40 f9 	ldr	x9, [x8]
+1000032b8: 29 81 5e f8 	ldur	x9, [x9, #-24]
+1000032bc: 00 01 09 8b 	add	x0, x8, x9
+1000032c0: 02 01 00 94 	bl	0x1000036c8 <__ZNKSt3__18ios_base5flagsEv>
+1000032c4: e0 43 00 b9 	str	w0, [sp, #64]
+1000032c8: 01 00 00 14 	b	0x1000032cc <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x74>
+1000032cc: e8 43 40 b9 	ldr	w8, [sp, #64]
+1000032d0: 09 16 80 52 	mov	w9, #176
+1000032d4: 08 01 09 0a 	and	w8, w8, w9
+1000032d8: 08 81 00 71 	subs	w8, w8, #32
+1000032dc: e1 00 00 54 	b.ne	0x1000032f8 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0xa0>
+1000032e0: 01 00 00 14 	b	0x1000032e4 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x8c>
+1000032e4: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000032e8: a9 83 5e f8 	ldur	x9, [x29, #-24]
+1000032ec: 08 01 09 8b 	add	x8, x8, x9
+1000032f0: e8 1b 00 f9 	str	x8, [sp, #48]
+1000032f4: 04 00 00 14 	b	0x100003304 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0xac>
+1000032f8: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000032fc: e8 1b 00 f9 	str	x8, [sp, #48]
+100003300: 01 00 00 14 	b	0x100003304 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0xac>
+100003304: e8 1b 40 f9 	ldr	x8, [sp, #48]
+100003308: e8 0b 00 f9 	str	x8, [sp, #16]
+10000330c: a8 03 5f f8 	ldur	x8, [x29, #-16]
+100003310: a9 83 5e f8 	ldur	x9, [x29, #-24]
+100003314: 08 01 09 8b 	add	x8, x8, x9
+100003318: e8 0f 00 f9 	str	x8, [sp, #24]
+10000331c: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100003320: 09 01 40 f9 	ldr	x9, [x8]
+100003324: 29 81 5e f8 	ldur	x9, [x9, #-24]
+100003328: 08 01 09 8b 	add	x8, x8, x9
+10000332c: e8 13 00 f9 	str	x8, [sp, #32]
+100003330: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100003334: 09 01 40 f9 	ldr	x9, [x8]
+100003338: 29 81 5e f8 	ldur	x9, [x9, #-24]
+10000333c: 00 01 09 8b 	add	x0, x8, x9
+100003340: e8 00 00 94 	bl	0x1000036e0 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillEv>
+100003344: e0 2f 00 b9 	str	w0, [sp, #44]
+100003348: 01 00 00 14 	b	0x10000334c <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0xf4>
+10000334c: e8 2f 40 b9 	ldr	w8, [sp, #44]
+100003350: e4 13 40 f9 	ldr	x4, [sp, #32]
+100003354: e3 0f 40 f9 	ldr	x3, [sp, #24]
+100003358: e2 0b 40 f9 	ldr	x2, [sp, #16]
+10000335c: e1 1f 40 f9 	ldr	x1, [sp, #56]
+100003360: e0 27 40 f9 	ldr	x0, [sp, #72]
+100003364: 05 1d 00 13 	sxtb	w5, w8
+100003368: 46 00 00 94 	bl	0x100003480 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_>
+10000336c: e0 07 00 f9 	str	x0, [sp, #8]
+100003370: 01 00 00 14 	b	0x100003374 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x11c>
+100003374: e8 07 40 f9 	ldr	x8, [sp, #8]
+100003378: a0 03 01 d1 	sub	x0, x29, #64
+10000337c: a8 03 1c f8 	stur	x8, [x29, #-64]
+100003380: f1 00 00 94 	bl	0x100003744 <__ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedEv>
+100003384: 40 04 00 36 	tbz	w0, #0, 0x10000340c <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1b4>
+100003388: 01 00 00 14 	b	0x10000338c <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x134>
+10000338c: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100003390: 09 01 40 f9 	ldr	x9, [x8]
+100003394: 29 81 5e f8 	ldur	x9, [x9, #-24]
+100003398: 00 01 09 8b 	add	x0, x8, x9
+10000339c: a1 00 80 52 	mov	w1, #5
+1000033a0: f2 00 00 94 	bl	0x100003768 <__ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateEj>
+1000033a4: 01 00 00 14 	b	0x1000033a8 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x150>
+1000033a8: 19 00 00 14 	b	0x10000340c <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1b4>
+1000033ac: e8 03 01 aa 	mov	x8, x1
+1000033b0: a0 03 1d f8 	stur	x0, [x29, #-48]
+1000033b4: a8 c3 1c b8 	stur	w8, [x29, #-52]
+1000033b8: 07 00 00 14 	b	0x1000033d4 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x17c>
+1000033bc: e8 03 01 aa 	mov	x8, x1
+1000033c0: a0 03 1d f8 	stur	x0, [x29, #-48]
+1000033c4: a8 c3 1c b8 	stur	w8, [x29, #-52]
+1000033c8: a0 a3 00 d1 	sub	x0, x29, #40
+1000033cc: 86 02 00 94 	bl	0x100003de4 <_strlen+0x100003de4>
+1000033d0: 01 00 00 14 	b	0x1000033d4 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x17c>
+1000033d4: a0 03 5d f8 	ldur	x0, [x29, #-48]
+1000033d8: 9e 02 00 94 	bl	0x100003e50 <_strlen+0x100003e50>
+1000033dc: a8 83 5f f8 	ldur	x8, [x29, #-8]
+1000033e0: 09 01 40 f9 	ldr	x9, [x8]
+1000033e4: 29 81 5e f8 	ldur	x9, [x9, #-24]
+1000033e8: 00 01 09 8b 	add	x0, x8, x9
+1000033ec: 8a 02 00 94 	bl	0x100003e14 <_strlen+0x100003e14>
+1000033f0: 01 00 00 14 	b	0x1000033f4 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x19c>
+1000033f4: 9a 02 00 94 	bl	0x100003e5c <_strlen+0x100003e5c>
+1000033f8: 01 00 00 14 	b	0x1000033fc <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1a4>
+1000033fc: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003400: fd 7b 49 a9 	ldp	x29, x30, [sp, #144]
+100003404: ff 83 02 91 	add	sp, sp, #160
+100003408: c0 03 5f d6 	ret
+10000340c: 01 00 00 14 	b	0x100003410 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1b8>
+100003410: a0 a3 00 d1 	sub	x0, x29, #40
+100003414: 74 02 00 94 	bl	0x100003de4 <_strlen+0x100003de4>
+100003418: f9 ff ff 17 	b	0x1000033fc <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1a4>
+10000341c: e8 03 01 aa 	mov	x8, x1
+100003420: a0 03 1d f8 	stur	x0, [x29, #-48]
+100003424: a8 c3 1c b8 	stur	w8, [x29, #-52]
+100003428: 8d 02 00 94 	bl	0x100003e5c <_strlen+0x100003e5c>
+10000342c: 01 00 00 14 	b	0x100003430 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1d8>
+100003430: 01 00 00 14 	b	0x100003434 <__ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m+0x1dc>
+100003434: a0 03 5d f8 	ldur	x0, [x29, #-48]
+100003438: 4a 02 00 94 	bl	0x100003d60 <_strlen+0x100003d60>
+10000343c: d6 00 00 94 	bl	0x100003794 <___clang_call_terminate>
+
+0000000100003440 <__ZNSt3__111char_traitsIcE6lengthEPKc>:
+100003440: ff 83 00 d1 	sub	sp, sp, #32
+100003444: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003448: fd 43 00 91 	add	x29, sp, #16
+10000344c: e0 07 00 f9 	str	x0, [sp, #8]
+100003450: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003454: 85 02 00 94 	bl	0x100003e68 <_strlen+0x100003e68>
+100003458: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+10000345c: ff 83 00 91 	add	sp, sp, #32
+100003460: c0 03 5f d6 	ret
+
+0000000100003464 <__ZNKSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentrycvbEv>:
+100003464: ff 43 00 d1 	sub	sp, sp, #16
+100003468: e0 07 00 f9 	str	x0, [sp, #8]
+10000346c: e8 07 40 f9 	ldr	x8, [sp, #8]
+100003470: 08 01 40 39 	ldrb	w8, [x8]
+100003474: 00 01 00 12 	and	w0, w8, #0x1
+100003478: ff 43 00 91 	add	sp, sp, #16
+10000347c: c0 03 5f d6 	ret
+
+0000000100003480 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_>:
+100003480: ff 83 02 d1 	sub	sp, sp, #160
+100003484: fd 7b 09 a9 	stp	x29, x30, [sp, #144]
+100003488: fd 43 02 91 	add	x29, sp, #144
+10000348c: a0 03 1f f8 	stur	x0, [x29, #-16]
+100003490: a1 83 1e f8 	stur	x1, [x29, #-24]
+100003494: a2 03 1e f8 	stur	x2, [x29, #-32]
+100003498: a3 83 1d f8 	stur	x3, [x29, #-40]
+10000349c: a4 03 1d f8 	stur	x4, [x29, #-48]
+1000034a0: a5 f3 1c 38 	sturb	w5, [x29, #-49]
+1000034a4: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000034a8: a8 00 00 b5 	cbnz	x8, 0x1000034bc <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x3c>
+1000034ac: 01 00 00 14 	b	0x1000034b0 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x30>
+1000034b0: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000034b4: a8 83 1f f8 	stur	x8, [x29, #-8]
+1000034b8: 71 00 00 14 	b	0x10000367c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1fc>
+1000034bc: a8 83 5d f8 	ldur	x8, [x29, #-40]
+1000034c0: a9 83 5e f8 	ldur	x9, [x29, #-24]
+1000034c4: 08 01 09 eb 	subs	x8, x8, x9
+1000034c8: a8 03 1c f8 	stur	x8, [x29, #-64]
+1000034cc: a0 03 5d f8 	ldur	x0, [x29, #-48]
+1000034d0: b4 00 00 94 	bl	0x1000037a0 <__ZNKSt3__18ios_base5widthEv>
+1000034d4: e0 27 00 f9 	str	x0, [sp, #72]
+1000034d8: e8 27 40 f9 	ldr	x8, [sp, #72]
+1000034dc: a9 03 5c f8 	ldur	x9, [x29, #-64]
+1000034e0: 08 01 09 eb 	subs	x8, x8, x9
+1000034e4: ed 00 00 54 	b.le	0x100003500 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x80>
+1000034e8: 01 00 00 14 	b	0x1000034ec <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x6c>
+1000034ec: a9 03 5c f8 	ldur	x9, [x29, #-64]
+1000034f0: e8 27 40 f9 	ldr	x8, [sp, #72]
+1000034f4: 08 01 09 eb 	subs	x8, x8, x9
+1000034f8: e8 27 00 f9 	str	x8, [sp, #72]
+1000034fc: 03 00 00 14 	b	0x100003508 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x88>
+100003500: ff 27 00 f9 	str	xzr, [sp, #72]
+100003504: 01 00 00 14 	b	0x100003508 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x88>
+100003508: a8 03 5e f8 	ldur	x8, [x29, #-32]
+10000350c: a9 83 5e f8 	ldur	x9, [x29, #-24]
+100003510: 08 01 09 eb 	subs	x8, x8, x9
+100003514: e8 23 00 f9 	str	x8, [sp, #64]
+100003518: e8 23 40 f9 	ldr	x8, [sp, #64]
+10000351c: 08 01 00 f1 	subs	x8, x8, #0
+100003520: ed 01 00 54 	b.le	0x10000355c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xdc>
+100003524: 01 00 00 14 	b	0x100003528 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xa8>
+100003528: a0 03 5f f8 	ldur	x0, [x29, #-16]
+10000352c: a1 83 5e f8 	ldur	x1, [x29, #-24]
+100003530: e2 23 40 f9 	ldr	x2, [sp, #64]
+100003534: a1 00 00 94 	bl	0x1000037b8 <__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnEPKcl>
+100003538: e8 23 40 f9 	ldr	x8, [sp, #64]
+10000353c: 08 00 08 eb 	subs	x8, x0, x8
+100003540: c0 00 00 54 	b.eq	0x100003558 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xd8>
+100003544: 01 00 00 14 	b	0x100003548 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xc8>
+100003548: bf 03 1f f8 	stur	xzr, [x29, #-16]
+10000354c: a8 03 5f f8 	ldur	x8, [x29, #-16]
+100003550: a8 83 1f f8 	stur	x8, [x29, #-8]
+100003554: 4a 00 00 14 	b	0x10000367c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1fc>
+100003558: 01 00 00 14 	b	0x10000355c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xdc>
+10000355c: e8 27 40 f9 	ldr	x8, [sp, #72]
+100003560: 08 01 00 f1 	subs	x8, x8, #0
+100003564: 6d 05 00 54 	b.le	0x100003610 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x190>
+100003568: 01 00 00 14 	b	0x10000356c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0xec>
+10000356c: e1 27 40 f9 	ldr	x1, [sp, #72]
+100003570: a2 f3 dc 38 	ldursb	w2, [x29, #-49]
+100003574: e0 a3 00 91 	add	x0, sp, #40
+100003578: e0 03 00 f9 	str	x0, [sp]
+10000357c: 9e 00 00 94 	bl	0x1000037f4 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1Emc>
+100003580: e0 03 40 f9 	ldr	x0, [sp]
+100003584: a8 03 5f f8 	ldur	x8, [x29, #-16]
+100003588: e8 07 00 f9 	str	x8, [sp, #8]
+10000358c: a9 00 00 94 	bl	0x100003830 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv>
+100003590: e1 03 00 aa 	mov	x1, x0
+100003594: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003598: e2 27 40 f9 	ldr	x2, [sp, #72]
+10000359c: 87 00 00 94 	bl	0x1000037b8 <__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnEPKcl>
+1000035a0: e0 0b 00 f9 	str	x0, [sp, #16]
+1000035a4: 01 00 00 14 	b	0x1000035a8 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x128>
+1000035a8: e8 0b 40 f9 	ldr	x8, [sp, #16]
+1000035ac: e9 27 40 f9 	ldr	x9, [sp, #72]
+1000035b0: 08 01 09 eb 	subs	x8, x8, x9
+1000035b4: c0 01 00 54 	b.eq	0x1000035ec <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x16c>
+1000035b8: 01 00 00 14 	b	0x1000035bc <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x13c>
+1000035bc: bf 03 1f f8 	stur	xzr, [x29, #-16]
+1000035c0: a8 03 5f f8 	ldur	x8, [x29, #-16]
+1000035c4: a8 83 1f f8 	stur	x8, [x29, #-8]
+1000035c8: 28 00 80 52 	mov	w8, #1
+1000035cc: e8 1b 00 b9 	str	w8, [sp, #24]
+1000035d0: 09 00 00 14 	b	0x1000035f4 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x174>
+1000035d4: e8 03 01 aa 	mov	x8, x1
+1000035d8: e0 13 00 f9 	str	x0, [sp, #32]
+1000035dc: e8 1f 00 b9 	str	w8, [sp, #28]
+1000035e0: e0 a3 00 91 	add	x0, sp, #40
+1000035e4: f4 01 00 94 	bl	0x100003db4 <_strlen+0x100003db4>
+1000035e8: 29 00 00 14 	b	0x10000368c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x20c>
+1000035ec: ff 1b 00 b9 	str	wzr, [sp, #24]
+1000035f0: 01 00 00 14 	b	0x1000035f4 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x174>
+1000035f4: e0 a3 00 91 	add	x0, sp, #40
+1000035f8: ef 01 00 94 	bl	0x100003db4 <_strlen+0x100003db4>
+1000035fc: e8 1b 40 b9 	ldr	w8, [sp, #24]
+100003600: 68 00 00 34 	cbz	w8, 0x10000360c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x18c>
+100003604: 01 00 00 14 	b	0x100003608 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x188>
+100003608: 1d 00 00 14 	b	0x10000367c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1fc>
+10000360c: 01 00 00 14 	b	0x100003610 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x190>
+100003610: a8 83 5d f8 	ldur	x8, [x29, #-40]
+100003614: a9 03 5e f8 	ldur	x9, [x29, #-32]
+100003618: 08 01 09 eb 	subs	x8, x8, x9
+10000361c: e8 23 00 f9 	str	x8, [sp, #64]
+100003620: e8 23 40 f9 	ldr	x8, [sp, #64]
+100003624: 08 01 00 f1 	subs	x8, x8, #0
+100003628: ed 01 00 54 	b.le	0x100003664 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1e4>
+10000362c: 01 00 00 14 	b	0x100003630 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1b0>
+100003630: a0 03 5f f8 	ldur	x0, [x29, #-16]
+100003634: a1 03 5e f8 	ldur	x1, [x29, #-32]
+100003638: e2 23 40 f9 	ldr	x2, [sp, #64]
+10000363c: 5f 00 00 94 	bl	0x1000037b8 <__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnEPKcl>
+100003640: e8 23 40 f9 	ldr	x8, [sp, #64]
+100003644: 08 00 08 eb 	subs	x8, x0, x8
+100003648: c0 00 00 54 	b.eq	0x100003660 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1e0>
+10000364c: 01 00 00 14 	b	0x100003650 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1d0>
+100003650: bf 03 1f f8 	stur	xzr, [x29, #-16]
+100003654: a8 03 5f f8 	ldur	x8, [x29, #-16]
+100003658: a8 83 1f f8 	stur	x8, [x29, #-8]
+10000365c: 08 00 00 14 	b	0x10000367c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1fc>
+100003660: 01 00 00 14 	b	0x100003664 <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1e4>
+100003664: a0 03 5d f8 	ldur	x0, [x29, #-48]
+100003668: 01 00 80 d2 	mov	x1, #0
+10000366c: 7b 00 00 94 	bl	0x100003858 <__ZNSt3__18ios_base5widthEl>
+100003670: a8 03 5f f8 	ldur	x8, [x29, #-16]
+100003674: a8 83 1f f8 	stur	x8, [x29, #-8]
+100003678: 01 00 00 14 	b	0x10000367c <__ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_+0x1fc>
+10000367c: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003680: fd 7b 49 a9 	ldp	x29, x30, [sp, #144]
+100003684: ff 83 02 91 	add	sp, sp, #160
+100003688: c0 03 5f d6 	ret
+10000368c: e0 13 40 f9 	ldr	x0, [sp, #32]
+100003690: b4 01 00 94 	bl	0x100003d60 <_strlen+0x100003d60>
+
+0000000100003694 <__ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC1ERNS_13basic_ostreamIcS2_EE>:
+100003694: ff c3 00 d1 	sub	sp, sp, #48
+100003698: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+10000369c: fd 83 00 91 	add	x29, sp, #32
+1000036a0: a0 83 1f f8 	stur	x0, [x29, #-8]
+1000036a4: e1 0b 00 f9 	str	x1, [sp, #16]
+1000036a8: a0 83 5f f8 	ldur	x0, [x29, #-8]
+1000036ac: e0 07 00 f9 	str	x0, [sp, #8]
+1000036b0: e1 0b 40 f9 	ldr	x1, [sp, #16]
+1000036b4: 34 01 00 94 	bl	0x100003b84 <__ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2ERNS_13basic_ostreamIcS2_EE>
+1000036b8: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000036bc: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+1000036c0: ff c3 00 91 	add	sp, sp, #48
+1000036c4: c0 03 5f d6 	ret
+
+00000001000036c8 <__ZNKSt3__18ios_base5flagsEv>:
+1000036c8: ff 43 00 d1 	sub	sp, sp, #16
+1000036cc: e0 07 00 f9 	str	x0, [sp, #8]
+1000036d0: e8 07 40 f9 	ldr	x8, [sp, #8]
+1000036d4: 00 09 40 b9 	ldr	w0, [x8, #8]
+1000036d8: ff 43 00 91 	add	sp, sp, #16
+1000036dc: c0 03 5f d6 	ret
+
+00000001000036e0 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillEv>:
+1000036e0: ff 83 00 d1 	sub	sp, sp, #32
+1000036e4: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+1000036e8: fd 43 00 91 	add	x29, sp, #16
+1000036ec: e0 07 00 f9 	str	x0, [sp, #8]
+1000036f0: e8 07 40 f9 	ldr	x8, [sp, #8]
+1000036f4: e8 03 00 f9 	str	x8, [sp]
+1000036f8: a6 01 00 94 	bl	0x100003d90 <_strlen+0x100003d90>
+1000036fc: e8 03 40 f9 	ldr	x8, [sp]
+100003700: 01 91 40 b9 	ldr	w1, [x8, #144]
+100003704: a0 01 00 94 	bl	0x100003d84 <_strlen+0x100003d84>
+100003708: 20 01 00 36 	tbz	w0, #0, 0x10000372c <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillEv+0x4c>
+10000370c: 01 00 00 14 	b	0x100003710 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillEv+0x30>
+100003710: e0 03 40 f9 	ldr	x0, [sp]
+100003714: 01 04 80 52 	mov	w1, #32
+100003718: 4b 01 00 94 	bl	0x100003c44 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc>
+10000371c: e9 03 40 f9 	ldr	x9, [sp]
+100003720: 08 1c 00 13 	sxtb	w8, w0
+100003724: 28 91 00 b9 	str	w8, [x9, #144]
+100003728: 01 00 00 14 	b	0x10000372c <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillEv+0x4c>
+10000372c: e8 03 40 f9 	ldr	x8, [sp]
+100003730: 08 91 40 b9 	ldr	w8, [x8, #144]
+100003734: 00 1d 00 13 	sxtb	w0, w8
+100003738: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+10000373c: ff 83 00 91 	add	sp, sp, #32
+100003740: c0 03 5f d6 	ret
+
+0000000100003744 <__ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedEv>:
+100003744: ff 43 00 d1 	sub	sp, sp, #16
+100003748: e0 07 00 f9 	str	x0, [sp, #8]
+10000374c: e8 07 40 f9 	ldr	x8, [sp, #8]
+100003750: 08 01 40 f9 	ldr	x8, [x8]
+100003754: 08 01 00 f1 	subs	x8, x8, #0
+100003758: e8 17 9f 1a 	cset	w8, eq
+10000375c: 00 01 00 12 	and	w0, w8, #0x1
+100003760: ff 43 00 91 	add	sp, sp, #16
+100003764: c0 03 5f d6 	ret
+
+0000000100003768 <__ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateEj>:
+100003768: ff 83 00 d1 	sub	sp, sp, #32
+10000376c: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003770: fd 43 00 91 	add	x29, sp, #16
+100003774: e0 07 00 f9 	str	x0, [sp, #8]
+100003778: e1 07 00 b9 	str	w1, [sp, #4]
+10000377c: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003780: e1 07 40 b9 	ldr	w1, [sp, #4]
+100003784: 6a 01 00 94 	bl	0x100003d2c <__ZNSt3__18ios_base8setstateEj>
+100003788: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+10000378c: ff 83 00 91 	add	sp, sp, #32
+100003790: c0 03 5f d6 	ret
+
+0000000100003794 <___clang_call_terminate>:
+100003794: fd 7b bf a9 	stp	x29, x30, [sp, #-16]!
+100003798: ae 01 00 94 	bl	0x100003e50 <_strlen+0x100003e50>
+10000379c: a7 01 00 94 	bl	0x100003e38 <_strlen+0x100003e38>
+
+00000001000037a0 <__ZNKSt3__18ios_base5widthEv>:
+1000037a0: ff 43 00 d1 	sub	sp, sp, #16
+1000037a4: e0 07 00 f9 	str	x0, [sp, #8]
+1000037a8: e8 07 40 f9 	ldr	x8, [sp, #8]
+1000037ac: 00 0d 40 f9 	ldr	x0, [x8, #24]
+1000037b0: ff 43 00 91 	add	sp, sp, #16
+1000037b4: c0 03 5f d6 	ret
+
+00000001000037b8 <__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnEPKcl>:
+1000037b8: ff c3 00 d1 	sub	sp, sp, #48
+1000037bc: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+1000037c0: fd 83 00 91 	add	x29, sp, #32
+1000037c4: a0 83 1f f8 	stur	x0, [x29, #-8]
+1000037c8: e1 0b 00 f9 	str	x1, [sp, #16]
+1000037cc: e2 07 00 f9 	str	x2, [sp, #8]
+1000037d0: a0 83 5f f8 	ldur	x0, [x29, #-8]
+1000037d4: e1 0b 40 f9 	ldr	x1, [sp, #16]
+1000037d8: e2 07 40 f9 	ldr	x2, [sp, #8]
+1000037dc: 08 00 40 f9 	ldr	x8, [x0]
+1000037e0: 08 31 40 f9 	ldr	x8, [x8, #96]
+1000037e4: 00 01 3f d6 	blr	x8
+1000037e8: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+1000037ec: ff c3 00 91 	add	sp, sp, #48
+1000037f0: c0 03 5f d6 	ret
+
+00000001000037f4 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1Emc>:
+1000037f4: ff c3 00 d1 	sub	sp, sp, #48
+1000037f8: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+1000037fc: fd 83 00 91 	add	x29, sp, #32
+100003800: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003804: e1 0b 00 f9 	str	x1, [sp, #16]
+100003808: e2 3f 00 39 	strb	w2, [sp, #15]
+10000380c: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003810: e0 03 00 f9 	str	x0, [sp]
+100003814: e1 0b 40 f9 	ldr	x1, [sp, #16]
+100003818: e2 3f c0 39 	ldrsb	w2, [sp, #15]
+10000381c: 1a 00 00 94 	bl	0x100003884 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2Emc>
+100003820: e0 03 40 f9 	ldr	x0, [sp]
+100003824: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100003828: ff c3 00 91 	add	sp, sp, #48
+10000382c: c0 03 5f d6 	ret
+
+0000000100003830 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv>:
+100003830: ff 83 00 d1 	sub	sp, sp, #32
+100003834: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003838: fd 43 00 91 	add	x29, sp, #16
+10000383c: e0 07 00 f9 	str	x0, [sp, #8]
+100003840: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003844: 70 00 00 94 	bl	0x100003a04 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv>
+100003848: 6a 00 00 94 	bl	0x1000039f0 <__ZNSt3__1L12__to_addressIcEEPT_S2_>
+10000384c: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003850: ff 83 00 91 	add	sp, sp, #32
+100003854: c0 03 5f d6 	ret
+
+0000000100003858 <__ZNSt3__18ios_base5widthEl>:
+100003858: ff 83 00 d1 	sub	sp, sp, #32
+10000385c: e0 0f 00 f9 	str	x0, [sp, #24]
+100003860: e1 0b 00 f9 	str	x1, [sp, #16]
+100003864: e9 0f 40 f9 	ldr	x9, [sp, #24]
+100003868: 28 0d 40 f9 	ldr	x8, [x9, #24]
+10000386c: e8 07 00 f9 	str	x8, [sp, #8]
+100003870: e8 0b 40 f9 	ldr	x8, [sp, #16]
+100003874: 28 0d 00 f9 	str	x8, [x9, #24]
+100003878: e0 07 40 f9 	ldr	x0, [sp, #8]
+10000387c: ff 83 00 91 	add	sp, sp, #32
+100003880: c0 03 5f d6 	ret
+
+0000000100003884 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2Emc>:
+100003884: ff c3 00 d1 	sub	sp, sp, #48
+100003888: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+10000388c: fd 83 00 91 	add	x29, sp, #32
+100003890: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003894: e1 0b 00 f9 	str	x1, [sp, #16]
+100003898: e2 3f 00 39 	strb	w2, [sp, #15]
+10000389c: a0 83 5f f8 	ldur	x0, [x29, #-8]
+1000038a0: e0 03 00 f9 	str	x0, [sp]
+1000038a4: e1 3b 00 91 	add	x1, sp, #14
+1000038a8: e2 37 00 91 	add	x2, sp, #13
+1000038ac: 09 00 00 94 	bl	0x1000038d0 <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_>
+1000038b0: e0 03 40 f9 	ldr	x0, [sp]
+1000038b4: e1 0b 40 f9 	ldr	x1, [sp, #16]
+1000038b8: e2 3f c0 39 	ldrsb	w2, [sp, #15]
+1000038bc: 3b 01 00 94 	bl	0x100003da8 <_strlen+0x100003da8>
+1000038c0: e0 03 40 f9 	ldr	x0, [sp]
+1000038c4: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+1000038c8: ff c3 00 91 	add	sp, sp, #48
+1000038cc: c0 03 5f d6 	ret
+
+00000001000038d0 <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_>:
+1000038d0: ff c3 00 d1 	sub	sp, sp, #48
+1000038d4: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+1000038d8: fd 83 00 91 	add	x29, sp, #32
+1000038dc: a0 83 1f f8 	stur	x0, [x29, #-8]
+1000038e0: e1 0b 00 f9 	str	x1, [sp, #16]
+1000038e4: e2 07 00 f9 	str	x2, [sp, #8]
+1000038e8: a0 83 5f f8 	ldur	x0, [x29, #-8]
+1000038ec: e0 03 00 f9 	str	x0, [sp]
+1000038f0: e1 0b 40 f9 	ldr	x1, [sp, #16]
+1000038f4: e2 07 40 f9 	ldr	x2, [sp, #8]
+1000038f8: 05 00 00 94 	bl	0x10000390c <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_>
+1000038fc: e0 03 40 f9 	ldr	x0, [sp]
+100003900: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100003904: ff c3 00 91 	add	sp, sp, #48
+100003908: c0 03 5f d6 	ret
+
+000000010000390c <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_>:
+10000390c: ff 03 01 d1 	sub	sp, sp, #64
+100003910: fd 7b 03 a9 	stp	x29, x30, [sp, #48]
+100003914: fd c3 00 91 	add	x29, sp, #48
+100003918: a0 83 1f f8 	stur	x0, [x29, #-8]
+10000391c: a1 03 1f f8 	stur	x1, [x29, #-16]
+100003920: e2 0f 00 f9 	str	x2, [sp, #24]
+100003924: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100003928: e8 07 00 f9 	str	x8, [sp, #8]
+10000392c: a0 03 5f f8 	ldur	x0, [x29, #-16]
+100003930: 0b 00 00 94 	bl	0x10000395c <__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE>
+100003934: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003938: 0e 00 00 94 	bl	0x100003970 <__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE>
+10000393c: e0 0f 40 f9 	ldr	x0, [sp, #24]
+100003940: 07 00 00 94 	bl	0x10000395c <__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE>
+100003944: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003948: 0f 00 00 94 	bl	0x100003984 <__ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE>
+10000394c: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003950: fd 7b 43 a9 	ldp	x29, x30, [sp, #48]
+100003954: ff 03 01 91 	add	sp, sp, #64
+100003958: c0 03 5f d6 	ret
+
+000000010000395c <__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE>:
+10000395c: ff 43 00 d1 	sub	sp, sp, #16
+100003960: e0 07 00 f9 	str	x0, [sp, #8]
+100003964: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003968: ff 43 00 91 	add	sp, sp, #16
+10000396c: c0 03 5f d6 	ret
+
+0000000100003970 <__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE>:
+100003970: ff 43 00 d1 	sub	sp, sp, #16
+100003974: e0 03 00 f9 	str	x0, [sp]
+100003978: e0 03 40 f9 	ldr	x0, [sp]
+10000397c: ff 43 00 91 	add	sp, sp, #16
+100003980: c0 03 5f d6 	ret
+
+0000000100003984 <__ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE>:
+100003984: ff c3 00 d1 	sub	sp, sp, #48
+100003988: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+10000398c: fd 83 00 91 	add	x29, sp, #32
+100003990: e0 0b 00 f9 	str	x0, [sp, #16]
+100003994: e0 0b 40 f9 	ldr	x0, [sp, #16]
+100003998: e0 07 00 f9 	str	x0, [sp, #8]
+10000399c: 05 00 00 94 	bl	0x1000039b0 <__ZNSt3__19allocatorIcEC2Ev>
+1000039a0: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000039a4: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+1000039a8: ff c3 00 91 	add	sp, sp, #48
+1000039ac: c0 03 5f d6 	ret
+
+00000001000039b0 <__ZNSt3__19allocatorIcEC2Ev>:
+1000039b0: ff 83 00 d1 	sub	sp, sp, #32
+1000039b4: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+1000039b8: fd 43 00 91 	add	x29, sp, #16
+1000039bc: e0 07 00 f9 	str	x0, [sp, #8]
+1000039c0: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000039c4: e0 03 00 f9 	str	x0, [sp]
+1000039c8: 05 00 00 94 	bl	0x1000039dc <__ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2Ev>
+1000039cc: e0 03 40 f9 	ldr	x0, [sp]
+1000039d0: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+1000039d4: ff 83 00 91 	add	sp, sp, #32
+1000039d8: c0 03 5f d6 	ret
+
+00000001000039dc <__ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2Ev>:
+1000039dc: ff 43 00 d1 	sub	sp, sp, #16
+1000039e0: e0 07 00 f9 	str	x0, [sp, #8]
+1000039e4: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000039e8: ff 43 00 91 	add	sp, sp, #16
+1000039ec: c0 03 5f d6 	ret
+
+00000001000039f0 <__ZNSt3__1L12__to_addressIcEEPT_S2_>:
+1000039f0: ff 43 00 d1 	sub	sp, sp, #16
+1000039f4: e0 07 00 f9 	str	x0, [sp, #8]
+1000039f8: e0 07 40 f9 	ldr	x0, [sp, #8]
+1000039fc: ff 43 00 91 	add	sp, sp, #16
+100003a00: c0 03 5f d6 	ret
+
+0000000100003a04 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv>:
+100003a04: ff c3 00 d1 	sub	sp, sp, #48
+100003a08: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+100003a0c: fd 83 00 91 	add	x29, sp, #32
+100003a10: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003a14: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003a18: e0 0b 00 f9 	str	x0, [sp, #16]
+100003a1c: 0f 00 00 94 	bl	0x100003a58 <__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv>
+100003a20: c0 00 00 36 	tbz	w0, #0, 0x100003a38 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv+0x34>
+100003a24: 01 00 00 14 	b	0x100003a28 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv+0x24>
+100003a28: e0 0b 40 f9 	ldr	x0, [sp, #16]
+100003a2c: 18 00 00 94 	bl	0x100003a8c <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv>
+100003a30: e0 07 00 f9 	str	x0, [sp, #8]
+100003a34: 05 00 00 14 	b	0x100003a48 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv+0x44>
+100003a38: e0 0b 40 f9 	ldr	x0, [sp, #16]
+100003a3c: 1e 00 00 94 	bl	0x100003ab4 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv>
+100003a40: e0 07 00 f9 	str	x0, [sp, #8]
+100003a44: 01 00 00 14 	b	0x100003a48 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv+0x44>
+100003a48: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003a4c: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100003a50: ff c3 00 91 	add	sp, sp, #48
+100003a54: c0 03 5f d6 	ret
+
+0000000100003a58 <__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv>:
+100003a58: ff 83 00 d1 	sub	sp, sp, #32
+100003a5c: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003a60: fd 43 00 91 	add	x29, sp, #16
+100003a64: e0 07 00 f9 	str	x0, [sp, #8]
+100003a68: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003a6c: 1c 00 00 94 	bl	0x100003adc <__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv>
+100003a70: 08 5c 40 39 	ldrb	w8, [x0, #23]
+100003a74: 08 01 79 f2 	ands	x8, x8, #0x80
+100003a78: e8 07 9f 1a 	cset	w8, ne
+100003a7c: 00 01 00 12 	and	w0, w8, #0x1
+100003a80: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003a84: ff 83 00 91 	add	sp, sp, #32
+100003a88: c0 03 5f d6 	ret
+
+0000000100003a8c <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv>:
+100003a8c: ff 83 00 d1 	sub	sp, sp, #32
+100003a90: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003a94: fd 43 00 91 	add	x29, sp, #16
+100003a98: e0 07 00 f9 	str	x0, [sp, #8]
+100003a9c: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003aa0: 1d 00 00 94 	bl	0x100003b14 <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv>
+100003aa4: 00 00 40 f9 	ldr	x0, [x0]
+100003aa8: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003aac: ff 83 00 91 	add	sp, sp, #32
+100003ab0: c0 03 5f d6 	ret
+
+0000000100003ab4 <__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv>:
+100003ab4: ff 83 00 d1 	sub	sp, sp, #32
+100003ab8: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003abc: fd 43 00 91 	add	x29, sp, #16
+100003ac0: e0 07 00 f9 	str	x0, [sp, #8]
+100003ac4: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003ac8: 13 00 00 94 	bl	0x100003b14 <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv>
+100003acc: 20 00 00 94 	bl	0x100003b4c <__ZNSt3__114pointer_traitsIPcE10pointer_toERc>
+100003ad0: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003ad4: ff 83 00 91 	add	sp, sp, #32
+100003ad8: c0 03 5f d6 	ret
+
+0000000100003adc <__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv>:
+100003adc: ff 83 00 d1 	sub	sp, sp, #32
+100003ae0: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003ae4: fd 43 00 91 	add	x29, sp, #16
+100003ae8: e0 07 00 f9 	str	x0, [sp, #8]
+100003aec: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003af0: 04 00 00 94 	bl	0x100003b00 <__ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv>
+100003af4: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003af8: ff 83 00 91 	add	sp, sp, #32
+100003afc: c0 03 5f d6 	ret
+
+0000000100003b00 <__ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv>:
+100003b00: ff 43 00 d1 	sub	sp, sp, #16
+100003b04: e0 07 00 f9 	str	x0, [sp, #8]
+100003b08: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003b0c: ff 43 00 91 	add	sp, sp, #16
+100003b10: c0 03 5f d6 	ret
+
+0000000100003b14 <__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv>:
+100003b14: ff 83 00 d1 	sub	sp, sp, #32
+100003b18: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003b1c: fd 43 00 91 	add	x29, sp, #16
+100003b20: e0 07 00 f9 	str	x0, [sp, #8]
+100003b24: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003b28: 04 00 00 94 	bl	0x100003b38 <__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv>
+100003b2c: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003b30: ff 83 00 91 	add	sp, sp, #32
+100003b34: c0 03 5f d6 	ret
+
+0000000100003b38 <__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv>:
+100003b38: ff 43 00 d1 	sub	sp, sp, #16
+100003b3c: e0 07 00 f9 	str	x0, [sp, #8]
+100003b40: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003b44: ff 43 00 91 	add	sp, sp, #16
+100003b48: c0 03 5f d6 	ret
+
+0000000100003b4c <__ZNSt3__114pointer_traitsIPcE10pointer_toERc>:
+100003b4c: ff 83 00 d1 	sub	sp, sp, #32
+100003b50: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003b54: fd 43 00 91 	add	x29, sp, #16
+100003b58: e0 07 00 f9 	str	x0, [sp, #8]
+100003b5c: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003b60: 04 00 00 94 	bl	0x100003b70 <__ZNSt3__1L9addressofIcEEPT_RS1_>
+100003b64: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003b68: ff 83 00 91 	add	sp, sp, #32
+100003b6c: c0 03 5f d6 	ret
+
+0000000100003b70 <__ZNSt3__1L9addressofIcEEPT_RS1_>:
+100003b70: ff 43 00 d1 	sub	sp, sp, #16
+100003b74: e0 07 00 f9 	str	x0, [sp, #8]
+100003b78: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003b7c: ff 43 00 91 	add	sp, sp, #16
+100003b80: c0 03 5f d6 	ret
+
+0000000100003b84 <__ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2ERNS_13basic_ostreamIcS2_EE>:
+100003b84: ff c3 00 d1 	sub	sp, sp, #48
+100003b88: fd 7b 02 a9 	stp	x29, x30, [sp, #32]
+100003b8c: fd 83 00 91 	add	x29, sp, #32
+100003b90: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003b94: e1 0b 00 f9 	str	x1, [sp, #16]
+100003b98: a8 83 5f f8 	ldur	x8, [x29, #-8]
+100003b9c: e8 03 00 f9 	str	x8, [sp]
+100003ba0: e8 0b 40 f9 	ldr	x8, [sp, #16]
+100003ba4: 09 01 40 f9 	ldr	x9, [x8]
+100003ba8: 29 81 5e f8 	ldur	x9, [x9, #-24]
+100003bac: 00 01 09 8b 	add	x0, x8, x9
+100003bb0: 0a 00 00 94 	bl	0x100003bd8 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5rdbufEv>
+100003bb4: e0 07 00 f9 	str	x0, [sp, #8]
+100003bb8: 01 00 00 14 	b	0x100003bbc <__ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2ERNS_13basic_ostreamIcS2_EE+0x38>
+100003bbc: e0 03 40 f9 	ldr	x0, [sp]
+100003bc0: e8 07 40 f9 	ldr	x8, [sp, #8]
+100003bc4: 08 00 00 f9 	str	x8, [x0]
+100003bc8: fd 7b 42 a9 	ldp	x29, x30, [sp, #32]
+100003bcc: ff c3 00 91 	add	sp, sp, #48
+100003bd0: c0 03 5f d6 	ret
+100003bd4: f0 fe ff 97 	bl	0x100003794 <___clang_call_terminate>
+
+0000000100003bd8 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5rdbufEv>:
+100003bd8: ff 83 00 d1 	sub	sp, sp, #32
+100003bdc: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003be0: fd 43 00 91 	add	x29, sp, #16
+100003be4: e0 07 00 f9 	str	x0, [sp, #8]
+100003be8: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003bec: 04 00 00 94 	bl	0x100003bfc <__ZNKSt3__18ios_base5rdbufEv>
+100003bf0: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003bf4: ff 83 00 91 	add	sp, sp, #32
+100003bf8: c0 03 5f d6 	ret
+
+0000000100003bfc <__ZNKSt3__18ios_base5rdbufEv>:
+100003bfc: ff 43 00 d1 	sub	sp, sp, #16
+100003c00: e0 07 00 f9 	str	x0, [sp, #8]
+100003c04: e8 07 40 f9 	ldr	x8, [sp, #8]
+100003c08: 00 15 40 f9 	ldr	x0, [x8, #40]
+100003c0c: ff 43 00 91 	add	sp, sp, #16
+100003c10: c0 03 5f d6 	ret
+
+0000000100003c14 <__ZNSt3__111char_traitsIcE11eq_int_typeEii>:
+100003c14: ff 43 00 d1 	sub	sp, sp, #16
+100003c18: e0 0f 00 b9 	str	w0, [sp, #12]
+100003c1c: e1 0b 00 b9 	str	w1, [sp, #8]
+100003c20: e8 0f 40 b9 	ldr	w8, [sp, #12]
+100003c24: e9 0b 40 b9 	ldr	w9, [sp, #8]
+100003c28: 08 01 09 6b 	subs	w8, w8, w9
+100003c2c: e8 17 9f 1a 	cset	w8, eq
+100003c30: 00 01 00 12 	and	w0, w8, #0x1
+100003c34: ff 43 00 91 	add	sp, sp, #16
+100003c38: c0 03 5f d6 	ret
+
+0000000100003c3c <__ZNSt3__111char_traitsIcE3eofEv>:
+100003c3c: 00 00 80 12 	mov	w0, #-1
+100003c40: c0 03 5f d6 	ret
+
+0000000100003c44 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc>:
+100003c44: ff 43 01 d1 	sub	sp, sp, #80
+100003c48: fd 7b 04 a9 	stp	x29, x30, [sp, #64]
+100003c4c: fd 03 01 91 	add	x29, sp, #64
+100003c50: a0 83 1f f8 	stur	x0, [x29, #-8]
+100003c54: a1 73 1f 38 	sturb	w1, [x29, #-9]
+100003c58: a0 83 5f f8 	ldur	x0, [x29, #-8]
+100003c5c: a8 63 00 d1 	sub	x8, x29, #24
+100003c60: e8 07 00 f9 	str	x8, [sp, #8]
+100003c64: 45 00 00 94 	bl	0x100003d78 <_strlen+0x100003d78>
+100003c68: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003c6c: 17 00 00 94 	bl	0x100003cc8 <__ZNSt3__1L9use_facetINS_5ctypeIcEEEERKT_RKNS_6localeE>
+100003c70: e0 0b 00 f9 	str	x0, [sp, #16]
+100003c74: 01 00 00 14 	b	0x100003c78 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc+0x34>
+100003c78: e0 0b 40 f9 	ldr	x0, [sp, #16]
+100003c7c: a1 73 df 38 	ldursb	w1, [x29, #-9]
+100003c80: 1d 00 00 94 	bl	0x100003cf4 <__ZNKSt3__15ctypeIcE5widenEc>
+100003c84: e0 07 00 b9 	str	w0, [sp, #4]
+100003c88: 01 00 00 14 	b	0x100003c8c <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc+0x48>
+100003c8c: a0 63 00 d1 	sub	x0, x29, #24
+100003c90: 5e 00 00 94 	bl	0x100003e08 <_strlen+0x100003e08>
+100003c94: e8 07 40 b9 	ldr	w8, [sp, #4]
+100003c98: 00 1d 00 13 	sxtb	w0, w8
+100003c9c: fd 7b 44 a9 	ldp	x29, x30, [sp, #64]
+100003ca0: ff 43 01 91 	add	sp, sp, #80
+100003ca4: c0 03 5f d6 	ret
+100003ca8: e8 03 01 aa 	mov	x8, x1
+100003cac: e0 13 00 f9 	str	x0, [sp, #32]
+100003cb0: e8 1f 00 b9 	str	w8, [sp, #28]
+100003cb4: a0 63 00 d1 	sub	x0, x29, #24
+100003cb8: 54 00 00 94 	bl	0x100003e08 <_strlen+0x100003e08>
+100003cbc: 01 00 00 14 	b	0x100003cc0 <__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc+0x7c>
+100003cc0: e0 13 40 f9 	ldr	x0, [sp, #32]
+100003cc4: 27 00 00 94 	bl	0x100003d60 <_strlen+0x100003d60>
+
+0000000100003cc8 <__ZNSt3__1L9use_facetINS_5ctypeIcEEEERKT_RKNS_6localeE>:
+100003cc8: ff 83 00 d1 	sub	sp, sp, #32
+100003ccc: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003cd0: fd 43 00 91 	add	x29, sp, #16
+100003cd4: e0 07 00 f9 	str	x0, [sp, #8]
+100003cd8: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003cdc: 01 00 00 b0 	adrp	x1, 0x100004000 <__ZNSt3__1L9use_facetINS_5ctypeIcEEEERKT_RKNS_6localeE+0x18>
+100003ce0: 21 40 40 f9 	ldr	x1, [x1, #128]
+100003ce4: 22 00 00 94 	bl	0x100003d6c <_strlen+0x100003d6c>
+100003ce8: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003cec: ff 83 00 91 	add	sp, sp, #32
+100003cf0: c0 03 5f d6 	ret
+
+0000000100003cf4 <__ZNKSt3__15ctypeIcE5widenEc>:
+100003cf4: ff 83 00 d1 	sub	sp, sp, #32
+100003cf8: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003cfc: fd 43 00 91 	add	x29, sp, #16
+100003d00: e0 07 00 f9 	str	x0, [sp, #8]
+100003d04: e1 1f 00 39 	strb	w1, [sp, #7]
+100003d08: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003d0c: e1 1f c0 39 	ldrsb	w1, [sp, #7]
+100003d10: 08 00 40 f9 	ldr	x8, [x0]
+100003d14: 08 1d 40 f9 	ldr	x8, [x8, #56]
+100003d18: 00 01 3f d6 	blr	x8
+100003d1c: 00 1c 00 13 	sxtb	w0, w0
+100003d20: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003d24: ff 83 00 91 	add	sp, sp, #32
+100003d28: c0 03 5f d6 	ret
+
+0000000100003d2c <__ZNSt3__18ios_base8setstateEj>:
+100003d2c: ff 83 00 d1 	sub	sp, sp, #32
+100003d30: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003d34: fd 43 00 91 	add	x29, sp, #16
+100003d38: e0 07 00 f9 	str	x0, [sp, #8]
+100003d3c: e1 07 00 b9 	str	w1, [sp, #4]
+100003d40: e0 07 40 f9 	ldr	x0, [sp, #8]
+100003d44: 08 20 40 b9 	ldr	w8, [x0, #32]
+100003d48: e9 07 40 b9 	ldr	w9, [sp, #4]
+100003d4c: 01 01 09 2a 	orr	w1, w8, w9
+100003d50: 34 00 00 94 	bl	0x100003e20 <_strlen+0x100003e20>
+100003d54: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003d58: ff 83 00 91 	add	sp, sp, #32
+100003d5c: c0 03 5f d6 	ret
+
+Disassembly of section __TEXT,__stubs:
+
+0000000100003d60 <__stubs>:
+100003d60: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x4>
+100003d64: 10 02 40 f9 	ldr	x16, [x16]
+100003d68: 00 02 1f d6 	br	x16
+100003d6c: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x10>
+100003d70: 10 06 40 f9 	ldr	x16, [x16, #8]
+100003d74: 00 02 1f d6 	br	x16
+100003d78: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x1c>
+100003d7c: 10 0a 40 f9 	ldr	x16, [x16, #16]
+100003d80: 00 02 1f d6 	br	x16
+100003d84: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x28>
+100003d88: 10 0e 40 f9 	ldr	x16, [x16, #24]
+100003d8c: 00 02 1f d6 	br	x16
+100003d90: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x34>
+100003d94: 10 12 40 f9 	ldr	x16, [x16, #32]
+100003d98: 00 02 1f d6 	br	x16
+100003d9c: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x40>
+100003da0: 10 16 40 f9 	ldr	x16, [x16, #40]
+100003da4: 00 02 1f d6 	br	x16
+100003da8: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x4c>
+100003dac: 10 1a 40 f9 	ldr	x16, [x16, #48]
+100003db0: 00 02 1f d6 	br	x16
+100003db4: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x58>
+100003db8: 10 1e 40 f9 	ldr	x16, [x16, #56]
+100003dbc: 00 02 1f d6 	br	x16
+100003dc0: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x64>
+100003dc4: 10 22 40 f9 	ldr	x16, [x16, #64]
+100003dc8: 00 02 1f d6 	br	x16
+100003dcc: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x70>
+100003dd0: 10 26 40 f9 	ldr	x16, [x16, #72]
+100003dd4: 00 02 1f d6 	br	x16
+100003dd8: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x7c>
+100003ddc: 10 2a 40 f9 	ldr	x16, [x16, #80]
+100003de0: 00 02 1f d6 	br	x16
+100003de4: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x88>
+100003de8: 10 2e 40 f9 	ldr	x16, [x16, #88]
+100003dec: 00 02 1f d6 	br	x16
+100003df0: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x94>
+100003df4: 10 32 40 f9 	ldr	x16, [x16, #96]
+100003df8: 00 02 1f d6 	br	x16
+100003dfc: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xa0>
+100003e00: 10 36 40 f9 	ldr	x16, [x16, #104]
+100003e04: 00 02 1f d6 	br	x16
+100003e08: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xac>
+100003e0c: 10 46 40 f9 	ldr	x16, [x16, #136]
+100003e10: 00 02 1f d6 	br	x16
+100003e14: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xb8>
+100003e18: 10 4a 40 f9 	ldr	x16, [x16, #144]
+100003e1c: 00 02 1f d6 	br	x16
+100003e20: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xc4>
+100003e24: 10 4e 40 f9 	ldr	x16, [x16, #152]
+100003e28: 00 02 1f d6 	br	x16
+100003e2c: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xd0>
+100003e30: 10 52 40 f9 	ldr	x16, [x16, #160]
+100003e34: 00 02 1f d6 	br	x16
+100003e38: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xdc>
+100003e3c: 10 56 40 f9 	ldr	x16, [x16, #168]
+100003e40: 00 02 1f d6 	br	x16
+100003e44: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xe8>
+100003e48: 10 5a 40 f9 	ldr	x16, [x16, #176]
+100003e4c: 00 02 1f d6 	br	x16
+100003e50: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0xf4>
+100003e54: 10 5e 40 f9 	ldr	x16, [x16, #184]
+100003e58: 00 02 1f d6 	br	x16
+100003e5c: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x100>
+100003e60: 10 62 40 f9 	ldr	x16, [x16, #192]
+100003e64: 00 02 1f d6 	br	x16
+100003e68: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x10c>
+100003e6c: 10 6a 40 f9 	ldr	x16, [x16, #208]
+100003e70: 00 02 1f d6 	br	x16
+
+Disassembly of section __TEXT,__gcc_except_tab:
+
+0000000100003e74 <GCC_except_table13>:
+100003e74: ff 9b 31 01 	<unknown>
+100003e78: 26 1c 08 d4 	<unknown>
+100003e7c: 02 01 28 a4 	<unknown>
+100003e80: 02 e4 02 01 	<unknown>
+100003e84: cc 02 48 00 	<unknown>
+100003e88: 00 94 03 04 	<unknown>
+100003e8c: c4 03 00 98 	ldrsw	x4, 0x100003f04 <_strlen+0x100003f04>
+100003e90: 03 38 00 00 	udf	#14339
+100003e94: d0 03 04 e4 	<unknown>
+100003e98: 03 01 d4 03 	<unknown>
+100003e9c: 14 00 00 01 	<unknown>
+		...
+
+0000000100003ea8 <GCC_except_table16>:
+100003ea8: ff ff 01 11 	add	wsp, wsp, #127
+100003eac: 00 9c 02 00 	<unknown>
+100003eb0: 00 9c 02 08 	stlxrb	w2, w0, [x0]
+100003eb4: d4 02 00 a4 	<unknown>
+100003eb8: 02 f0 01 00 	<unknown>
+100003ebc: 00 00 00 00 	udf	#0
+
+0000000100003ec0 <GCC_except_table47>:
+100003ec0: ff 9b 0d 01 	<unknown>
+100003ec4: 04 2c 08 50 	adr	x4, #66946
+100003ec8: 01 01 00 00 	udf	#257
+100003ecc: 00 00 00 00 	udf	#0
+
+0000000100003ed0 <GCC_except_table52>:
+100003ed0: ff ff 01 0c 	<unknown>
+100003ed4: 00 28 00 00 	udf	#10240
+100003ed8: 28 1c 64 00 	<unknown>
+100003edc: 44 40 00 00 	udf	#16452
+
+Disassembly of section __TEXT,__cstring:
+
+0000000100003ee0 <__cstring>:
+100003ee0: 41 3a 3a 76 	<unknown>
+100003ee4: 66 75 6e 63 	<unknown>
+100003ee8: 31 28 29 00 	<unknown>
+100003eec: 42 3a 3a 76 	<unknown>
+100003ef0: 66 75 6e 63 	<unknown>
+100003ef4: 31 28 29 00 	<unknown>
+
+Disassembly of section __TEXT,__const:
+
+0000000100003ef8 <__ZTS1A>:
+100003ef8: 31 41 00 31 	adds	w17, w9, #16
+
+0000000100003efb <__ZTS1B>:
+100003efb: 31          	<unknown>
+100003efc: 42          	<unknown>
+100003efd: 00          	<unknown>
+
+Disassembly of section __TEXT,__unwind_info:
+
+0000000100003f00 <__unwind_info>:
+100003f00: 01 00 00 00 	udf	#1
+100003f04: 1c 00 00 00 	udf	#28
+100003f08: 03 00 00 00 	udf	#3
+100003f0c: 28 00 00 00 	udf	#40
+100003f10: 01 00 00 00 	udf	#1
+100003f14: 2c 00 00 00 	udf	#44
+100003f18: 02 00 00 00 	udf	#2
+100003f1c: 00 00 00 04 	<unknown>
+100003f20: 00 10 00 02 	<unknown>
+100003f24: 00 00 00 54 	b.eq	0x100003f24 <__unwind_info+0x24>
+100003f28: c8 40 00 00 	udf	#16584
+100003f2c: 24 2f 00 00 	udf	#12068
+100003f30: 64 00 00 00 	udf	#100
+100003f34: 44 00 00 00 	udf	#68
+100003f38: 61 3d 00 00 	udf	#15713
+100003f3c: 00 00 00 00 	udf	#0
+100003f40: 64 00 00 00 	udf	#100
+100003f44: 58 32 00 00 	udf	#12888
+100003f48: 74 3e 00 00 	udf	#15988
+100003f4c: 80 34 00 00 	udf	#13440
+100003f50: a8 3e 00 00 	udf	#16040
+100003f54: 84 3b 00 00 	udf	#15236
+100003f58: c0 3e 00 00 	udf	#16064
+100003f5c: 44 3c 00 00 	udf	#15428
+100003f60: d0 3e 00 00 	udf	#16080
+100003f64: 03 00 00 00 	udf	#3
+100003f68: 0c 00 21 00 	<unknown>
+100003f6c: 90 00 03 00 	<unknown>
+100003f70: 00 00 00 00 	udf	#0
+100003f74: a4 02 00 01 	<unknown>
+100003f78: c8 02 00 00 	udf	#712
+100003f7c: 0c 03 00 01 	<unknown>
+100003f80: 34 03 00 02 	<unknown>
+100003f84: 1c 05 00 00 	udf	#1308
+100003f88: 40 05 00 01 	<unknown>
+100003f8c: 5c 05 00 02 	<unknown>
+100003f90: 70 07 00 00 	udf	#1904
+100003f94: a4 07 00 01 	<unknown>
+100003f98: bc 07 00 00 	udf	#1980
+100003f9c: 20 08 00 01 	<unknown>
+100003fa0: 44 08 00 00 	udf	#2116
+100003fa4: 70 08 00 05 	<unknown>
+100003fa8: 7c 08 00 01 	<unknown>
+100003fac: 94 08 00 00 	udf	#2196
+100003fb0: 34 09 00 04 	<unknown>
+100003fb4: 60 09 00 00 	udf	#2400
+100003fb8: 38 0a 00 01 	<unknown>
+100003fbc: 60 0a 00 00 	udf	#2656
+100003fc0: b8 0a 00 01 	<unknown>
+100003fc4: e0 0a 00 00 	udf	#2784
+100003fc8: dc 0b 00 01 	<unknown>
+100003fcc: f0 0b 00 00 	udf	#3056
+100003fd0: 14 0c 00 01 	<unknown>
+100003fd4: 28 0c 00 00 	udf	#3112
+100003fd8: 4c 0c 00 01 	<unknown>
+100003fdc: 60 0c 00 02 	<unknown>
+100003fe0: b4 0c 00 00 	udf	#3252
+100003fe4: d8 0c 00 01 	<unknown>
+100003fe8: 18 0d 00 03 	<unknown>
+100003fec: 20 0d 00 02 	<unknown>
+100003ff0: a4 0d 00 00 	udf	#3492
+100003ff4: 00 00 00 02 	<unknown>
+100003ff8: 00 20 00 02 	<unknown>
+100003ffc: 00 00 00 00 	udf	#0
+
+Disassembly of section __DATA_CONST,__got:
+
+0000000100004000 <__got>:
+100004000: 00 00 00 00 	udf	#0
+100004004: 00 00 10 80 	<unknown>
+100004008: 01 00 00 00 	udf	#1
+10000400c: 00 00 10 80 	<unknown>
+100004010: 02 00 00 00 	udf	#2
+100004014: 00 00 10 80 	<unknown>
+100004018: 03 00 00 00 	udf	#3
+10000401c: 00 00 10 80 	<unknown>
+100004020: 04 00 00 00 	udf	#4
+100004024: 00 00 10 80 	<unknown>
+100004028: 05 00 00 00 	udf	#5
+10000402c: 00 00 10 80 	<unknown>
+100004030: 06 00 00 00 	udf	#6
+100004034: 00 00 10 80 	<unknown>
+100004038: 07 00 00 00 	udf	#7
+10000403c: 00 00 10 80 	<unknown>
+100004040: 08 00 00 00 	udf	#8
+100004044: 00 00 10 80 	<unknown>
+100004048: 09 00 00 00 	udf	#9
+10000404c: 00 00 10 80 	<unknown>
+100004050: 0a 00 00 00 	udf	#10
+100004054: 00 00 10 80 	<unknown>
+100004058: 0b 00 00 00 	udf	#11
+10000405c: 00 00 10 80 	<unknown>
+100004060: 0c 00 00 00 	udf	#12
+100004064: 00 00 10 80 	<unknown>
+100004068: 0d 00 00 00 	udf	#13
+10000406c: 00 00 10 80 	<unknown>
+100004070: 0e 00 00 00 	udf	#14
+100004074: 00 00 10 80 	<unknown>
+100004078: 0f 00 00 00 	udf	#15
+10000407c: 00 00 10 80 	<unknown>
+100004080: 10 00 00 00 	udf	#16
+100004084: 00 00 10 80 	<unknown>
+100004088: 11 00 00 00 	udf	#17
+10000408c: 00 00 10 80 	<unknown>
+100004090: 12 00 00 00 	udf	#18
+100004094: 00 00 10 80 	<unknown>
+100004098: 13 00 00 00 	udf	#19
+10000409c: 00 00 10 80 	<unknown>
+1000040a0: 14 00 00 00 	udf	#20
+1000040a4: 00 00 10 80 	<unknown>
+1000040a8: 15 00 00 00 	udf	#21
+1000040ac: 00 00 10 80 	<unknown>
+1000040b0: 16 00 00 00 	udf	#22
+1000040b4: 00 00 10 80 	<unknown>
+1000040b8: 17 00 00 00 	udf	#23
+1000040bc: 00 00 10 80 	<unknown>
+1000040c0: 18 00 00 00 	udf	#24
+1000040c4: 00 00 10 80 	<unknown>
+1000040c8: 19 00 00 00 	udf	#25
+1000040cc: 00 00 10 80 	<unknown>
+1000040d0: 1a 00 00 00 	udf	#26
+1000040d4: 00 00 20 80 	<unknown>
+
+Disassembly of section __DATA_CONST,__const:
+
+00000001000040d8 <__ZTV1A>:
+		...
+1000040e0: f0 40 00 00 	udf	#16624
+1000040e4: 00 00 10 00 	<unknown>
+1000040e8: 24 2f 00 00 	udf	#12068
+1000040ec: 00 00 10 00 	<unknown>
+
+00000001000040f0 <__ZTI1A>:
+1000040f0: 1b 00 00 10 	adr	x27, #0
+1000040f4: 00 00 10 80 	<unknown>
+1000040f8: f8 3e 00 00 	udf	#16120
+1000040fc: 00 00 20 00 	<unknown>
+
+0000000100004100 <__ZTV1B>:
+		...
+100004108: 18 41 00 00 	udf	#16664
+10000410c: 00 00 10 00 	<unknown>
+100004110: 2c 30 00 00 	udf	#12332
+100004114: 00 00 10 00 	<unknown>
+
+0000000100004118 <__ZTI1B>:
+100004118: 1c 00 00 10 	adr	x28, #0
+10000411c: 00 00 10 80 	<unknown>
+100004120: fb 3e 00 00 	udf	#16123
+100004124: 00 00 10 00 	<unknown>
+100004128: f0 40 00 00 	udf	#16624
+10000412c: 00 00 00 00 	udf	#0
