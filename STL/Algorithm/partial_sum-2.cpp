@@ -18,7 +18,10 @@ ostream& operator<<(ostream& os, const vector<vector<T>>& v) {
 }
 
 const std::vector<std::vector<int>> v1{
-    {0, 3, 6, 9, 7, 5, 0}, {0, 4, 12, 8, 10, 3, 0}, {0, 12, 11, 6, 4, 7, 0}};
+    {0, 3, 6, 9, 7, 5, 0},   //
+    {0, 4, 12, 8, 10, 3, 0}, //
+    {0, 12, 11, 6, 4, 7, 0}  //
+};
 int m = v1.size(), n = v1[0].size();
 
 void t1() {
@@ -31,13 +34,15 @@ void t1() {
 
 void t2() {
     cout << v1;
-    vector<vector<int>> ans_row(n, vector<int>(m + 1));
-    for (int i{}; i < n; ++i)
-        partial_sum(v1[i].begin(), v1[i + m].begin(), ans_row[i]);
+    vector<vector<int>> ans_row(m + 1, vector<int>(n));
+    for (int i{}; i < m; ++i)
+        for (int j{}; j < n; ++j) // 只能自己写循环
+            ans_row[i + 1][j] = ans_row[i][j] + v1[i][j];
+    cout << ans_row;
 }
 
 int main() {
-    /* t1(); */
+    // t1();
     t2();
     return 0;
 }

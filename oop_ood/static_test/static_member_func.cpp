@@ -19,6 +19,8 @@ public:
         cout << "调用static func " << endl;
     }
 
+    static void f2() { cout << "f2()\n"; }
+
     static int ma;
 };
 
@@ -36,7 +38,20 @@ void t1() {
     cout << P::ma << endl; // 100
 }
 
+void t2() {
+    auto ptr1 = P::func;
+    auto ptr2 = &P::func;
+    auto fp = &P::f2;
+    ptr1();
+    ptr2();
+    cout << hex << ptr1 << endl;
+    cout << ptr2 << endl;
+    cout << fp << endl;
+    cout << &P::ma << endl;
+}
+
 int main(int argc, char const *argv[]) {
-    t1();
+    // t1();
+    t2();
     return 0;
 }

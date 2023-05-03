@@ -10,16 +10,16 @@
 using namespace std;
 // const long ASIZE  =  700000L;
 
-//以下 MyString 是為了測試 containers with moveable elements 效果.
+// 以下 MyString 是為了測試 containers with moveable elements 效果.
 class MyString {
 public:
-    static size_t DCtor; //累計 default-ctor 的呼叫次數
-    static size_t Ctor;  //累計 ctor      的呼叫次數
-    static size_t CCtor; //累計 copy-ctor 的呼叫次數
-    static size_t CAsgn; //累計 copy-asgn 的呼叫次數
-    static size_t MCtor; //累計 move-ctor 的呼叫次數
-    static size_t MAsgn; //累計 move-asgn 的呼叫次數
-    static size_t Dtor;  //累計 dtor 的呼叫次數
+    static size_t DCtor; // 累計 default-ctor 的呼叫次數
+    static size_t Ctor;  // 累計 ctor      的呼叫次數
+    static size_t CCtor; // 累計 copy-ctor 的呼叫次數
+    static size_t CAsgn; // 累計 copy-asgn 的呼叫次數
+    static size_t MCtor; // 累計 move-ctor 的呼叫次數
+    static size_t MAsgn; // 累計 move-asgn 的呼叫次數
+    static size_t Dtor;  // 累計 dtor 的呼叫次數
 private:
     char* _data;
     size_t _len;
@@ -48,8 +48,8 @@ public:
     // move ctor, with "noexcept"
     MyString(MyString&& str) noexcept : _data(str._data), _len(str._len) {
         ++MCtor;
-        str._len  = 0;
-        str._data = NULL; //避免 delete (in dtor)
+        str._len = 0;
+        str._data = NULL; // 避免 delete (in dtor)
     }
 
     // copy assignment
@@ -70,10 +70,10 @@ public:
         ++MAsgn;
         if (this != &str) {
             if (_data) delete _data;
-            _len      = str._len;
-            _data     = str._data; // MOVE!
-            str._len  = 0;
-            str._data = NULL; //避免 deleted in dtor
+            _len = str._len;
+            _data = str._data; // MOVE!
+            str._len = 0;
+            str._data = NULL;  // 避免 deleted in dtor
         }
         return *this;
     }
@@ -84,50 +84,50 @@ public:
         if (_data) { delete _data; }
     }
 
-    bool operator<(const MyString& rhs) const //為了讓 set 比較大小
+    bool operator<(const MyString& rhs) const // 為了讓 set 比較大小
     {
         return std::string(this->_data) <
-               std::string(rhs._data); //借用事實：string 已能比較大小.
+               std::string(rhs._data); // 借用事實：string 已能比較大小.
     }
-    bool operator==(const MyString& rhs) const //為了讓 set 判斷相等.
+    bool operator==(const MyString& rhs) const // 為了讓 set 判斷相等.
     {
         return std::string(this->_data) ==
-               std::string(rhs._data); //借用事實：string 已能判斷相等.
+               std::string(rhs._data); // 借用事實：string 已能判斷相等.
     }
 
     char* get() const { return _data; }
 };
 size_t MyString::DCtor = 0;
-size_t MyString::Ctor  = 0;
+size_t MyString::Ctor = 0;
 size_t MyString::CCtor = 0;
 size_t MyString::CAsgn = 0;
 size_t MyString::MCtor = 0;
 size_t MyString::MAsgn = 0;
-size_t MyString::Dtor  = 0;
+size_t MyString::Dtor = 0;
 
-namespace std //必須放在 std 內
+namespace std // 必須放在 std 內
 {
 template <>
-struct hash<MyString> //這是為了 unordered containers
+struct hash<MyString> // 這是為了 unordered containers
 {
     size_t operator()(const MyString& s) const noexcept {
         return hash<string>()(string(s.get()));
     }
-    //借用現有的 hash<string> (in ...\include\c++\bits\basic_string.h)
+    // 借用現有的 hash<string> (in ...\include\c++\bits\basic_string.h)
 };
 } // namespace std
 
 //-----------------
-//以下 MyStrNoMove 是為了測試 containers with no-moveable elements 效果.
+// 以下 MyStrNoMove 是為了測試 containers with no-moveable elements 效果.
 class MyStrNoMove {
 public:
-    static size_t DCtor; //累計 default-ctor 的呼叫次數
-    static size_t Ctor;  //累計 ctor      的呼叫次數
-    static size_t CCtor; //累計 copy-ctor 的呼叫次數
-    static size_t CAsgn; //累計 copy-asgn 的呼叫次數
-    static size_t MCtor; //累計 move-ctor 的呼叫次數
-    static size_t MAsgn; //累計 move-asgn 的呼叫次數
-    static size_t Dtor;  //累計 dtor 的呼叫次數
+    static size_t DCtor; // 累計 default-ctor 的呼叫次數
+    static size_t Ctor;  // 累計 ctor      的呼叫次數
+    static size_t CCtor; // 累計 copy-ctor 的呼叫次數
+    static size_t CAsgn; // 累計 copy-asgn 的呼叫次數
+    static size_t MCtor; // 累計 move-ctor 的呼叫次數
+    static size_t MAsgn; // 累計 move-asgn 的呼叫次數
+    static size_t Dtor;  // 累計 dtor 的呼叫次數
 private:
     char* _data;
     size_t _len;
@@ -176,37 +176,37 @@ public:
         if (_data) { delete _data; }
     }
 
-    bool operator<(const MyStrNoMove& rhs) const //為了讓 set 比較大小
+    bool operator<(const MyStrNoMove& rhs) const // 為了讓 set 比較大小
     {
         return string(this->_data) <
-               string(rhs._data); //借用事實：string 已能比較大小.
+               string(rhs._data); // 借用事實：string 已能比較大小.
     }
 
-    bool operator==(const MyStrNoMove& rhs) const //為了讓 set 判斷相等.
+    bool operator==(const MyStrNoMove& rhs) const // 為了讓 set 判斷相等.
     {
         return string(this->_data) ==
-               string(rhs._data); //借用事實：string 已能判斷相等.
+               string(rhs._data); // 借用事實：string 已能判斷相等.
     }
 
     char* get() const { return _data; }
 };
 size_t MyStrNoMove::DCtor = 0;
-size_t MyStrNoMove::Ctor  = 0;
+size_t MyStrNoMove::Ctor = 0;
 size_t MyStrNoMove::CCtor = 0;
 size_t MyStrNoMove::CAsgn = 0;
 size_t MyStrNoMove::MCtor = 0;
 size_t MyStrNoMove::MAsgn = 0;
-size_t MyStrNoMove::Dtor  = 0;
+size_t MyStrNoMove::Dtor = 0;
 
-namespace std //必須放在 std 內
+namespace std // 必須放在 std 內
 {
 template <>
-struct hash<MyStrNoMove> //這是為了 unordered containers
+struct hash<MyStrNoMove> // 這是為了 unordered containers
 {
     size_t operator()(const MyStrNoMove& s) const noexcept {
         return hash<string>()(string(s.get()));
     }
-    //借用現有的 hash<string> (in ...\4.9.2\include\c++\bits\basic_string.h)
+    // 借用現有的 hash<string> (in ...\4.9.2\include\c++\bits\basic_string.h)
 };
 } // namespace std
 
@@ -223,7 +223,7 @@ template <typename M, typename NM>
 void test_moveable(M c1, NM c2, long& value) {
     char buf[10];
 
-    //測試 move
+    // 測試 move
     cout << "\n\ntest, with moveable elements" << endl;
     typedef typename iterator_traits<typename M::iterator>::value_type V1type;
     clock_t timeStart = clock();
@@ -249,7 +249,7 @@ void test_moveable(M c1, NM c2, long& value) {
     cout << "swap, milli-seconds : " << (clock() - timeStart) << endl;
 
 
-    //測試 non-moveable
+    // 測試 non-moveable
     cout << "\n\ntest, with non-moveable elements" << endl;
     typedef typename iterator_traits<typename NM::iterator>::value_type V2type;
     timeStart = clock();
@@ -313,7 +313,7 @@ void test_vector(long& value) {
             cout << string(buf) << endl;
         } catch (exception& p) {
             cout << "i=" << i << " " << p.what() << endl;
-            //曾經最高 i=58389486 then std::bad_alloc
+            // 曾經最高 i=58389486 then std::bad_alloc
             abort();
         }
     }
@@ -328,7 +328,7 @@ void test_vector(long& value) {
 
     string target = get_a_target_string();
     {
-        timeStart  = clock();
+        timeStart = clock();
         auto pItem = find(c.begin(), c.end(), target);
         cout << "std::find(), milli-seconds : " << (clock() - timeStart)
              << endl;
@@ -344,7 +344,7 @@ void test_vector(long& value) {
         sort(c.begin(), c.end());
         cout << "sort(), milli-seconds : " << (clock() - timeStart) << endl;
 
-        timeStart     = clock();
+        timeStart = clock();
         string* pItem = (string*)::bsearch(&target, (c.data()), c.size(),
                                            sizeof(string), compareStrings);
         cout << "bsearch(), milli-seconds : " << (clock() - timeStart) << endl;

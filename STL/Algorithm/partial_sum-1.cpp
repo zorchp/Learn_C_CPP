@@ -3,6 +3,14 @@
 #include <iostream>
 #include <iterator>
 #include <functional>
+
+using namespace std;
+template <typename T>
+ostream& operator<<(ostream& os, const vector<T>& v) {
+    for (auto i : v) os << i << " ";
+    return os << endl;
+}
+
 void t1() {
     std::vector<int> v = {2, 2, 2, 2, 2,
                           2, 2, 2, 2, 2}; // 或 std::vector<int>v(10, 2);
@@ -21,11 +29,10 @@ void t1() {
 
 
 void t2() {
-    using namespace std;
     vector<int> v{1, 2, 3, 4, 5};
     vector<int> ans(v.size() + 1);
     struct f {
-        constexpr int operator()(const int& lhs, const int& rhs) {
+        constexpr int operator()(const int& lhs, const int& rhs) const {
             return lhs + rhs;
         }
     };
@@ -37,8 +44,16 @@ void t2() {
     cout << endl;
 }
 
+void t3() {
+    vector<int> v{1, 2, 3, 4, 5};
+    vector<int> ans(v.size() + 1);
+    partial_sum(v.begin(), v.end(), ans.begin() + 1);
+    cout << ans;
+}
+
 int main() {
     // t1();
-    t2();
+    // t2();
+    t3();
     return 0;
 }

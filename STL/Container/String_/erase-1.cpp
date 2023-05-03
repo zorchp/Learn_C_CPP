@@ -1,46 +1,38 @@
-#include <cassert>
+#include <algorithm>
+#include <iostream>
 #include <iterator>
 #include <string>
+using namespace std;
 
-using namespace std::string_literals;
 
 int main() {
-    std::string s = "xmplr";
+    std::string s = "This Is An Example";
 
-    // insert(size_type index, size_type count, char ch)
-    s.insert(0, 1, 'E');
-    assert("Exmplr" == s);
+    // cout << *std::find(s.begin(), s.end(), ' ') << endl;
+    // cout << s.find(' ') << endl;
 
-    // insert(size_type index, const char* s)
-    s.insert(2, "e");
-    assert("Exemplr" == s);
+    std::cout << "1) " << s << '\n';
 
-    // insert(size_type index, string const& str)
-    s.insert(6, "a"s);
-    assert("Exemplar" == s);
+    s.erase(7, 3); // erases " An" using overload (1)
+    std::cout << "2) " << s << '\n';
 
-    // insert(size_type index, string const& str,
-    //        size_type index_str, size_type count)
-    s.insert(8, " is an example string."s, 0, 14);
-    assert("Exemplar is an example" == s);
+    s.erase( // std::find返回找到的第一个元素的迭代器(指向单一元素)
+        std::find(s.begin(), s.end(), ' ')); // erases first ' '; overload (2)
+    std::cout << "3) " << s << '\n';
+    // std::cout << s.find(' ') << std::endl; // 6
+    s.erase( // 成员函数find返回找到的第一个元素的下标(数值)
+        s.find(' ')); // trims from ' ' to the end of the string; overload (1)
+    std::cout << "4) " << s << '\n';
 
-    // insert(const_iterator pos, char ch)
-    s.insert(s.cbegin() + s.find_first_of('n') + 1, ':');
-    assert("Exemplar is an: example" == s);
-
-    // insert(const_iterator pos, size_type count, char ch)
-    s.insert(s.cbegin() + s.find_first_of(':') + 1, 2, '=');
-    assert("Exemplar is an:== example" == s);
-
-    // insert(const_iterator pos, InputIt first, InputIt last)
-    {
-        std::string seq = " string";
-        s.insert(s.begin() + s.find_last_of('e') + 1, std::begin(seq),
-                 std::end(seq));
-        assert("Exemplar is an:== example string" == s);
-    }
-
-    // insert(const_iterator pos, std::initializer_list<char>)
-    s.insert(s.cbegin() + s.find_first_of('g') + 1, {'.'});
-    assert("Exemplar is an:== example string." == s);
+    auto it =
+        std::next(s.begin(), s.find('s')); // obtains iterator to the first 's'
+    s.erase(it, std::next(it, 2));         // erases "sI"; overload (3)
+    std::cout << "5) " << s << '\n';
 }
+/*
+1) This Is An Example
+2) This Is Example
+3) ThisIs Example
+4) ThisIs
+5) This
+*/

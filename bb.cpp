@@ -1,41 +1,63 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
-void swap1(int *p, int *q) { // X
-    int tmp = *p;            // p指向的值
-    p = q;                   // p指向了q指向的数据
-    *q = tmp;                // q指向了p指向的数据
-    // 此时 p, q 同时指向p指向的值了
-}
+class Solution {
+public:
+    double maxProfit(double origin, vector<double>& prices, int k) {
+        // cache + dfs
+        // int n = prices.size(), cache[n][k+1][2];
+        // function<int(int, int, int)> dfs = [&](int i, int j, int hold) -> int
+        // {
+        //     if ( i<0 )
+        //         return hold ? -INT_MAX/2 : origin;
+        //     if ( j<0 )
+        //         return -INT_MAX/2;
+        //     if ( cache[i][j][hold]!=-1 )
+        //         return cache[i][j][hold];
+        //     if ( hold )
+        //         return cache[i][j][hold] = max(dfs(i-1, j-1,
+        //         false)/prices[i], dfs(i-1, j, true));
+        //     return cache[i][j][hold] = max(dfs(i-1, j, true)*prices[i],
+        //     dfs(i-1, j, false));
+        // };
 
-void swap2(int *p, int *q) { // X
-    // cout << p << " " << q << endl;
-    int *tmp = p; // tmp和p都指向p所指向的数据
-    p = q;        // p指向q指向的数据
-    q = tmp;      // q指向p指向的数据
-    // cout << p << " " << q << endl;
-    // 只有指针的指向发生改变了, 数据实际上没发生变化
-}
+        // // iteration
+        // int n = prices.size();
+        // double f[n+1][k+2][2];
+        // memset(f, -(double)0x3f, sizeof(f));
+        // for ( int j=0;j<=k+1;++j ) f[0][j][false] = origin;
+        // for ( int i=0;i<n;++i ) {
+        //     for ( int j=0;j<k+1;++j ) {
+        //         f[i+1][j+1][true] = max(f[i][j][false]/prices[i],
+        //         f[i][j+1][true]); f[i+1][j+1][false] =
+        //         max(f[i][j+1][true]*prices[i], f[i][j+1][false]);
+        //     }
+        // }
+        // return f[n][k+1][false]-origin;
 
-void swap3(int *p, int *q) { // ok
-    int tmp = *p;            // tmp存p指向的数据
-    *p = *q;                 // p指向的数据变成q指向的数据
-    *q = tmp;                // q指向的数据变成p之前指向的数据
-}
+        // space optimized
+        int n = prices.size();
+        double f[k + 2][2];
+        memset(f, -(double)0x3f, sizeof(f));
+        for (int j = 0; j <= k + 1; ++j) f[j][false] = origin;
+        for (int i = 0; i < n; ++i) {
+            for (int j = k; j >= 0; --j) {
+                f[j + 1][true] = max(f[j][false] / prices[i], f[j + 1][true]);
+                f[j + 1][false] =
+                    max(f[j + 1][true] * prices[i], f[j + 1][false]);
+            }
+        }
+        return f[k + 1][false] - origin;
+    }
+};
 
-void swap4(int *p, int *q) { // X
-    int *tmp = p;            // tmp和p都指向p指向的数据
-    *p = *q;                 // p指向的数据变成q指向的数据
-    q = tmp;// q指向tmp指向的数据(p指向的数据)
-    // 此时p, q 同时指向q指向的数据了
-}
 
-
-int main() {
-    //
-    int a = 10, b = 20;
-    cout << a << " " << b << endl;
-    int *r = &a, *s = &b;
-    swap4(r, s);
-    cout << a << " " << b << endl;
+int main(int argc, char const* argv[]) {
+    Solution s;
+    vector<double> v{1, 2, 1, 2, 2, 3, 2};
+    cout << s.maxProfit(10000, v, 2);
+    return 0;
 }
