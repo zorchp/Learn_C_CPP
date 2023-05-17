@@ -2,6 +2,7 @@
 // #include <new>
 using namespace std;
 /*placement-new*/
+
 class Bad {};
 class Foo {
 public:
@@ -18,7 +19,7 @@ public:
     static void* operator new(size_t size, long extra,
                               char init); // 另一个新的placement new()
     // static void* operator new(long extra, char init);
-    // error, 第一参数必须是size_t类型
+    // error, **第一参数必须是size_t类型**
 
     /*可以重载对应版本的operator delete(), 但是不会被调用,
     只有当operator new()调用的ctor抛出异常时候, 才会调用这些重载版本的delete(),

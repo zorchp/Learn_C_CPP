@@ -13,28 +13,29 @@ public:
 
     void* operator new(size_t);
     void operator delete(void*, size_t); //(2)
-    //! void  operator delete(void*);           //(1) 二擇一.
+    // void operator delete(void*);         //(1) 二擇一.
     //! 若(1)(2)並存,會有很奇怪的報錯 (摸不著頭緒)
+    // link error
 
 private:
     Screen* next;
-    static Screen* freeStore; //指向链表头部
+    static Screen* freeStore; // 指向链表头部
     static const int screenChunk;
 
 private:
     int i;
 };
-Screen* Screen::freeStore = nullptr; //空指针
+Screen* Screen::freeStore = nullptr; // 空指针
 const int Screen::screenChunk = 24;
 
 void* Screen::operator new(size_t size) {
     Screen* p;
     if (!freeStore) {
         // linked list 是空的，所以攫取一大塊 memory
-        //以下呼叫的是 global operator new
+        // 以下呼叫的是 global operator new
         size_t chunk = screenChunk * size;
         freeStore = p = reinterpret_cast<Screen*>(new char[chunk]);
-        //將分配得來的一大塊 memory 當做 linked list 般小塊小塊串接起來
+        // 將分配得來的一大塊 memory 當做 linked list 般小塊小塊串接起來
         for (; p != &freeStore[screenChunk - 1]; ++p) p->next = p + 1;
         p->next = nullptr;
     }
@@ -46,8 +47,8 @@ void* Screen::operator new(size_t size) {
 
 //! void Screen::operator delete(void *p)       //(1)
 void Screen::operator delete(void* p, size_t) { //(2)二擇一
-    //將 deleted object(delete一次仅有一个区块被收集起来) 收回插入 free list
-    //前端(首结点)
+    // 將 deleted object(delete一次仅有一个区块被收集起来) 收回插入 free list
+    // 前端(首结点)
     (static_cast<Screen*>(p))->next = freeStore; // next指向freeStore头部
     freeStore = static_cast<Screen*>(p);         // freeStore回到头部
 }
@@ -63,7 +64,7 @@ void test_per_class_allocator_1() {
 
     for (int i = 0; i < N; ++i) p[i] = new Screen(i);
 
-    //輸出前 10 個 pointers, 用以比較其間隔
+    // 輸出前 10 個 pointers, 用以比較其間隔
     for (int i = 0; i < 10; ++i) cout << p[i] << endl;
 
     for (int i = 0; i < N; ++i) delete p[i];
@@ -89,7 +90,6 @@ int main(int argc, char const* argv[]) {
     0x13ef040f0
     0x13ef04100
     0x13ef04110
-    Press ENTER to exit!
     */
 
     // using system operator new and delete void

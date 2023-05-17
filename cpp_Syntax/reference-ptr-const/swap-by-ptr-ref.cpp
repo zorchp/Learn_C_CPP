@@ -2,9 +2,9 @@
 using namespace std;
 
 void swap1(int *&p, int *&q) { // X
-    int &tmp = *p;             // p指向的值
+    int *&tmp = p;             // p指向的值
     p = q;                     // p指向了q指向的数据
-    *q = tmp;                  // q指向了p指向的数据
+    q = tmp;                   // q指向了p指向的数据
     // 此时 p, q 同时指向p指向的值了
 }
 

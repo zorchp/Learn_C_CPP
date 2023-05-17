@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-namespace jj12 {
-
 class Foo {
 public:
     long _x;
@@ -13,7 +11,7 @@ public:
     //! static void* operator new(size_t size) = default; //[Error] cannot be
     //! defaulted static void  operator delete(void* pdead, size_t size) =
     //! default;   //[Error] cannot be defaulted
-    static void* operator new[](size_t size)                = delete;
+    static void* operator new[](size_t size) = delete;
     static void operator delete[](void* pdead, size_t size) = delete;
 };
 
@@ -24,12 +22,12 @@ public:
 public:
     Goo(long x = 0) : _x(x) {}
 
-    static void* operator new(size_t size)                = delete;
+    static void* operator new(size_t size) = delete;
     static void operator delete(void* pdead, size_t size) = delete;
 };
 
 void test_delete_and_default_for_new() {
-    cout << "\n\n\ntest_delete_and_default_for_new().......... \n";
+    cout << " test_delete_and_default_for_new().......... \n";
 
     Foo* p1 = new Foo(5);
     delete p1;
@@ -45,9 +43,8 @@ void test_delete_and_default_for_new() {
     Goo* pG = new Goo[10];
     delete[] pG;
 }
-} // namespace jj12
 
 int main(int argc, char const* argv[]) {
-    jj12::test_delete_and_default_for_new();
+    test_delete_and_default_for_new();
     return 0;
 }

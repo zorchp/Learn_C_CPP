@@ -1,7 +1,7 @@
 #include <complex>
 #include <iostream>
 using namespace std;
-
+// version 3
 namespace jj09 {
 
 class allocator {
@@ -17,7 +17,7 @@ public:
 
 private:
     obj* freeStore = nullptr;
-    const int CHUNK = 5; //小一點方便觀察
+    const int CHUNK = 5; // 小一點方便觀察
 };
 
 void* allocator::allocate(size_t size) {
@@ -26,13 +26,13 @@ void* allocator::allocate(size_t size) {
     if (!freeStore) {
         // linked list 是空的，所以攫取一大塊 memory
         size_t chunk = CHUNK * size;
-        freeStore = p = (obj*) malloc(chunk); //主要通过malloc分配
+        freeStore = p = (obj*)malloc(chunk); // 主要通过malloc分配
 
         // cout << "empty. malloc: " << chunk << "  " << p << endl;
 
-        //將分配得來的一大塊當做 linked list 般小塊小塊串接起來
-        for (int i = 0; i < (CHUNK - 1); ++i) { //沒寫很漂亮, 不是重點無所謂.
-            p->next = (obj*) ((char*) p + size);
+        // 將分配得來的一大塊當做 linked list 般小塊小塊串接起來
+        for (int i = 0; i < (CHUNK - 1); ++i) { // 沒寫很漂亮, 不是重點無所謂.
+            p->next = (obj*)((char*)p + size);
             p = p->next;
         }
         p->next = nullptr; // last
@@ -45,9 +45,9 @@ void* allocator::allocate(size_t size) {
     return p;
 }
 void allocator::deallocate(void* p, size_t) {
-    //將 deleted object 收回插入 free list 前端
-    ((obj*) p)->next = freeStore;
-    freeStore = (obj*) p;
+    // 將 deleted object 收回插入 free list 前端
+    ((obj*)p)->next = freeStore;
+    freeStore = (obj*)p;
 }
 void allocator::check() {
     obj* p = freeStore;
@@ -107,9 +107,7 @@ void test_static_allocator_3() {
         }
         // Foo::myAlloc.check();
 
-        for (int i = 0; i < 23; ++i) {
-            delete p[i];
-        }
+        for (int i = 0; i < 23; ++i) { delete p[i]; }
         // Foo::myAlloc.check();
     }
 
@@ -123,9 +121,7 @@ void test_static_allocator_3() {
         }
         // Goo::myAlloc.check();
 
-        for (int i = 0; i < 17; ++i) {
-            delete p[i];
-        }
+        for (int i = 0; i < 17; ++i) { delete p[i]; }
         // Goo::myAlloc.check();
     }
 }
