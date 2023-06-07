@@ -28,15 +28,20 @@ void t2() {
     p p1{.a = 10};
     q1.p1 = &p1;
     q q2;
-    q2 = q1; // 不能直接赋值
+    q2 = q1; // 可以直接赋值
     printf("%d\n", q2.a);
     printf("%f\n", q2.b);
     printf("%s\n", q2.s);
-    printf("p1.a=%d\n", q2.p1->a);
+    printf("p1.a=%d\n", q2.p1->a); // 你好
+}
+
+void t3() {
+    //
 }
 // }
 int main(int argc, char const* argv[]) {
     // t1();
-    t2();
+    // t2();
+    t3();
     return 0;
 }

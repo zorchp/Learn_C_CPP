@@ -15,9 +15,19 @@ int t1() {
     return 1;
 }
 
-static int p = t1();
+static int p1 = t1();
+
+struct P {
+    P() { cout << "before main 4\n"; }
+};
+P p; // global object
 
 int main(int argc, char *argv[]) {
     cout << "main\n";
     return 0;
 }
+// before main 1
+// before main 2
+// before main 3
+// before main 4
+// main

@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
     if (fd == -1) ERR(socket);
     struct sockaddr_in saddr;
     saddr.sin_family = AF_INET;
-    inet_pton(AF_INET, "127.0.0.1", &saddr.sin_addr.s_addr);
-    saddr.sin_port = htons(9999);
+    inet_pton(AF_INET, "59.110.48.22", &saddr.sin_addr.s_addr);
+    saddr.sin_port = htons(9006);
 
     int eno = connect(fd, (struct sockaddr *)&saddr, sizeof(saddr));
     if (eno == -1) ERR(connect);
