@@ -164,7 +164,26 @@ Point3d    |
     Vertex3d
 */
 
+void mumble(const Vertex&) {}
 } // namespace multi_inheritance
+
+
+void t3() {
+    using namespace multi_inheritance;
+    Vertex3d v;
+    mumble(v); // 这样转换并不好
+}
+
+namespace virtual_inheritance {
+// class ios {};
+// class istream : public ios {};
+// class ostream : public ios {};
+// class iostream : public istream, public ostream {};
+class ios {};
+class istream : virtual ios {};
+class ostream : virtual ios {};
+class iostream : public istream, public ostream {};
+} // namespace virtual_inheritance
 
 int main(int argc, char* argv[]) {
     // t1();
