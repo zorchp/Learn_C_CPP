@@ -54,6 +54,15 @@ void t3() {
     printf("%f\n", *((float *)((char *)&p + 16)));
 }
 
+void t31() {
+    Point3d p;
+    p.x = 1.23;
+    printf("%p\n", &p);
+    printf("%p\n", (char *)&p);
+    printf("%p\n", ((float *)((char *)&p + 8)));
+    printf("%f\n", *((float *)((char *)&p + 8)));
+}
+
 struct B1 {
     int v1;
 };
@@ -85,6 +94,7 @@ int main(int argc, char *argv[]) {
     // t1();
     // t2();
     // t3();
-    t4();
+    t31();
+    // t4();
     return 0;
 }
