@@ -7,7 +7,9 @@ namespace case_1 {
 class Foo {
 public:
     //
-    Foo() { printf("%s\n", __func__); }
+    Foo() {
+        printf("%s\n", __func__);
+    }
 };
 
 class Bar {
@@ -23,23 +25,30 @@ void t1() {
     using namespace case_1;
     Bar bar;
     // Foo
+    // printf("bar.str=%s\n", bar.str); // !危险的内存访问
 }
 
 namespace case_1_1 {
 class Foo {
 public:
     //
-    Foo() { printf("%s\n", __func__); }
+    Foo() {
+        printf("%s\n", __func__);
+    }
 };
 class Foo1 {
 public:
     //
-    Foo1() { printf("%s\n", __func__); }
+    Foo1() {
+        printf("%s\n", __func__);
+    }
 };
 
 class Bar {
 public:
-    Bar() { str = 0; } // 如果已经有了只初始化str 的构造函数
+    Bar() {
+        str = 0;
+    } // 如果已经有了只初始化str 的构造函数
     Foo foo;
     Foo1 foo1;
     char *str;
@@ -59,7 +68,9 @@ void t11() {
 namespace case_2 { // 带有 默认构造的基类
 class A {
 public:
-    A() { printf("%s\n", __func__); }
+    A() {
+        printf("%s\n", __func__);
+    }
 };
 
 class B : public A {
@@ -78,16 +89,22 @@ namespace case_3 { // 带有虚函数的类
 class W {
 public:
     virtual void flip() const = 0;
-    W() { printf("%s\n", __func__); }
+    W() {
+        printf("%s\n", __func__);
+    }
 };
 class Bell : public W {
-    void flip() const {}
+    void flip() const {
+    }
 };
 class Whistle : public W {
-    void flip() const {}
+    void flip() const {
+    }
 };
 
-void flip(const W &w) { w.flip(); }
+void flip(const W &w) {
+    w.flip();
+}
 
 } // namespace case_3
 
@@ -105,6 +122,9 @@ namespace case_4 {
 // 虚继承
 class X {
 public:
+    X() {
+        printf("%s\n", __FUNCTION__);
+    }
     int i;
 };
 class A : public virtual X {
@@ -119,7 +139,9 @@ class C : public A, public B {
 public:
     int k;
 };
-void foo(A *pa) { pa->i = 1024; }
+void foo(A *pa) {
+    pa->i = 1024;
+}
 } // namespace case_4
 
 void t4() {
@@ -134,8 +156,8 @@ void t4() {
 int main(int argc, char *argv[]) {
     // t1();
     // t11();
-    t2();
+    // t2();
     // t3();
-    // t4();
+    t4();
     return 0;
 }

@@ -3,6 +3,7 @@
 class Base {
 public:
     void pub_mem();
+    int pub_data;
 
 protected:
     int prot_mem;
@@ -49,18 +50,35 @@ void t1() {
 // 派生访问说明符还可以控制继承自派生类的新类的访问权限
 struct Derived_from_Public : public Pub_Derv {
     // ok, Base::prot_mem 在 Pub_Derv 中仍然是 protected 的
-    int use_base() { return prot_mem; }
+    int use_base() {
+        f();
+        h();
+        int a = pub_data;
+        return prot_mem;
+    }
 };
 
 struct Derived_from_Protected : public Prot_Derv {
     // ok, Base::prot_mem 在 Pub_Derv 中仍然是 protected 的
-    int use_base() { return prot_mem; }
+    int use_base() {
+        f();
+        h();
+        int a = pub_data;
+        return prot_mem;
+    }
 };
 
 
 struct Derived_from_Private : public Priv_Derv {
     // error, Base::prot_mem 在 Priv_Derv 中是 private 的
     // int use_base() { return prot_mem; }
+    int use_base() {
+        f();
+        h();
+        // int a = pub_data; //'pub_data' is a private member of 'Base'
+        // return prot_mem; //'prot_mem' is a private member of 'Base'
+        return 1;
+    }
 };
 
 // 私有继承导致派生类私有化了所有基类成员,
