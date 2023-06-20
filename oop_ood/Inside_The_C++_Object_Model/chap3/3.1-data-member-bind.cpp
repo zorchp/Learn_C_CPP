@@ -6,7 +6,9 @@ extern float x;
 class Point3d {
 public:
     Point3d(float, float, float);
-    float X() const { return x; }
+    float X() const {
+        return x;
+    }
     // void X(float new_x) const { x = new_x; }
 
 private:
@@ -22,8 +24,12 @@ class Point3d {
     // typedef float length; // 除非用在了这里, 否则会用全局 typedef
 
 public:
-    void mumble(length val) { _val = val; }
-    length mumble() { return _val; }
+    void mumble(length val) {
+        _val = val;
+    }
+    length mumble() {
+        return _val;
+    }
     // void X(float new_x) const { x = new_x; }
 
 private:
