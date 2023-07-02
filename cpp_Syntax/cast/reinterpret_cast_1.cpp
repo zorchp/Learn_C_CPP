@@ -31,9 +31,10 @@ void t1() {
     std::cout << i << '\n';
 
     [[maybe_unused]] const int& const_iref = i;
-    // int &iref = reinterpret_cast<int&>(
+    // int& iref = reinterpret_cast<int&>(
     //     const_iref); // compiler error - can't get rid of const
-    // Must use const_cast instead: int &iref = const_cast<int&>(const_iref);
+    // Must use const_cast instead:
+    // int& iref = const_cast<int&>(const_iref);
 }
 /*
 The value of &i is 0x16f3b708c
@@ -44,11 +45,11 @@ This system is little-endian
 
 
 void t2() {
-    int a    = 0x00636261;
-    int* pi  = &a;
+    int a = 0x00636261;
+    int* pi = &a;
     char* ps = reinterpret_cast<char*>(pi);
     printf("pi=%p, ps=%p\n", pi, ps);
-    printf("*pi=%d, ps=%s\n", *pi, ps);
+    printf("*pi=%x, ps=%s\n", *pi, ps);
     /*
     pi=0x16d49308c, ps=0x16d49308c
     *pi=6513249, ps=abc
@@ -56,11 +57,11 @@ void t2() {
 }
 
 void t3() {
-    int a    = 0x0063006261;
-    int* pi  = &a;
+    int a = 0x0063006261;
+    int* pi = &a;
     char* ps = reinterpret_cast<char*>(pi);
     printf("pi=%p, ps=%p\n", pi, ps);
-    printf("*pi=%d, ps=%s\n", *pi, ps);
+    printf("*pi=%x, ps=%s\n", *pi, ps);
     /*
     pi=0x16f00708c, ps=0x16f00708c
     *pi=1660969569, ps=ab
@@ -68,21 +69,22 @@ void t3() {
 }
 
 void t4() {
-    int a    = 0x64636261;
-    int* pi  = &a;
+    int a = 0x64636261;
+    int* pi = &a;
     char* ps = reinterpret_cast<char*>(pi);
     printf("pi=%p, ps=%p\n", pi, ps);
-    printf("*pi=%d, ps=%s\n", *pi, ps);
+    printf("*pi=%x, ps=%s\n", *pi, ps);
     /*
-    pi=0x16b97f08c, ps=0x16b97f08c
-    *pi=1684234849, ps=abcd��k//多出的字符是pi被转换成的字符
+    pi=0x16da2f25c, ps=0x16da2f25c
+    *pi=64636261, ps=abcd\�m
+    // 多出的字符是pi被转换成的字符
     */
 }
 
 int main(int argc, char const* argv[]) {
-    // t1();
+    t1();
     // t2();
     // t3();
-    t4();
+    // t4();
     return 0;
 }

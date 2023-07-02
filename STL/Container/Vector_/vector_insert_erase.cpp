@@ -13,7 +13,9 @@ void printV(vector<int> &v) {
 void test1() {
     // 尾插法插入元素
     vector<int> v;
-    for (int i = 0; i < 5; i++) { v.push_back(i * 2 + 1); }
+    for (int i = 0; i < 5; i++) {
+        v.push_back(i * 2 + 1);
+    }
     // 遍历vector
     printV(v);
     // 1 3 5 7 9
@@ -46,7 +48,18 @@ void test1() {
     // 3 5
 }
 
+void t2() {
+    vector v{1, 2, 3, 4, 5, 7, 9};
+    auto last = v.begin() + 3;
+    v.erase(v.begin() + 1, last);
+    for (auto i : v)
+        cout << i << " "; // 1 4 5 7 9
+    cout << endl;
+    cout << *last; // 7
+}
+
 int main(int argc, char const *argv[]) {
-    test1();
+    // test1();
+    t2();
     return 0;
 }

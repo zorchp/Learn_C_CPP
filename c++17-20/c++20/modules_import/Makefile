@@ -1,4 +1,4 @@
-cc =g++-12 -g -std=c++20 -fmodules-ts
+cc = g++ -g -std=c++20 -fmodules-ts
 prom = main
 deps = $(shell find ./ -name "*.h")
 src = $(shell find ./ -name "*.cpp")

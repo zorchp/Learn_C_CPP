@@ -18,6 +18,8 @@ void t1() {
     deque<int> dq{1, 2, 3, 5, 6, 7, 9};
     cout << dq;
     cout << "dq[2]=" << dq[2] << endl;
+    deque<int>::iterator it = find(dq.begin(), dq.end(), 5);
+    cout << "dq[2]=" << *(it) << endl;
     dq.pop_back();
     cout << dq;
     dq.pop_front();

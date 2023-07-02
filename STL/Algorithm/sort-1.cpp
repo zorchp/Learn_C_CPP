@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
+#include <list>
 using namespace std;
 
 template <typename T>
 ostream& operator<<(ostream& os, const vector<T>& v) {
-    for (auto i : v) os << i << " ";
+    for (auto i : v)
+        os << i << " ";
     return os << '\n';
 }
 
 void print_arr(int arr[], size_t n) { // C-style array need length
-    for (int i{}; i < n; ++i) cout << arr[i] << " ";
+    for (int i{}; i < n; ++i)
+        cout << arr[i] << " ";
     cout << '\n';
 }
 
@@ -53,11 +56,17 @@ void t4() {
     //  2 3
     //  2 9
 }
+void t5() {
+    list<int> l1{1, 2, 9, 29, 4, 294, 219, 1, 1, 3};
+    // sort(l1.begin(), l1.end()); // error
+    cout << __CHAR_BIT__; // 8
+}
 int main(int argc, char* argv[]) {
     // t1();
     // t2();
     // t3();
-    t4();
+    // t4();
+    t5();
     //
     return 0;
 }

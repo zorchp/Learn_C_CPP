@@ -35,7 +35,7 @@ public:
 
 private:
     shared_ptr<vector<string>> data;
-    void check(size_type i, const string &msg) const; //检查data[i]
+    void check(size_type i, const string &msg) const; // 检查data[i]
 };
 
 StrBlob::StrBlob() : data(make_shared<vector<string>>()) {}
@@ -94,7 +94,7 @@ public:
     StrBlobPtr() : curr(0) {}
     StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
     string &deref() const;
-    StrBlobPtr &incr(); //前置递增
+    StrBlobPtr &incr(); // 前置递增
 private:
     shared_ptr<vector<string>> check(size_t, const string &) const;
     weak_ptr<vector<sting>> wptr;
@@ -108,12 +108,12 @@ shared_ptr<vector<string>> check(size_t i, const string &msg) const {
     return ret;
 }
 
-string &StrBlobPtr::deref() const { //解引用
+string &StrBlobPtr::deref() const { // 解引用
     auto p = check(curr, "dereference past end");
     return (*p)[curr]; //*p就是指向的vector对象
 }
 
-StrBlobPtr &StrBlobPtr::incr() { //前置自增
+StrBlobPtr &StrBlobPtr::incr() { // 前置自增
     check(curr, "increment past end of StrBlobPtr");
     ++curr;
     return *this;
