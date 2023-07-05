@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(int argc, char *argv[]) {
+void t1() {
+    //
+}
+
+int main(int argc, char* argv[]) {
+    t1();
     //
     return 0;
 }
