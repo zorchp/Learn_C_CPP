@@ -2,20 +2,19 @@
 #include <assert.h>
 #include <netdb.h>
 #include <netinet/in.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     struct addrinfo hints1, *res1, *rp;
     memset(&hints1, 0, sizeof(hints1));
 
-    char* hostname = "www.dlut.edu.cn";
-    char* port = NULL;
+    char *hostname = "www.dlut.edu.cn";
+    char *port = NULL;
     char str[INET6_ADDRSTRLEN];
-
 
     assert(getaddrinfo(hostname, port, &hints1, &res1) == 0);
 

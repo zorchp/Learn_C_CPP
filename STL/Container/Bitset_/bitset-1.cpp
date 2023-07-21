@@ -25,6 +25,15 @@ void t2() {
     cout << x;
 }
 
+void t3() {
+    cout << sizeof(bitset<0>) << endl;   // 1
+    cout << sizeof(bitset<1>) << endl;   // 8
+    cout << sizeof(bitset<64>) << endl;  // 8
+    cout << sizeof(bitset<65>) << endl;  // 16
+    cout << sizeof(bitset<128>) << endl; // 16
+    cout << sizeof(bitset<129>) << endl; // 24
+}
+
 int main(int argc, char *argv[]) {
     t1();
     // t2();

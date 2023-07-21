@@ -57,6 +57,13 @@ void t5() {
     cout << it->second << endl;         // two1
     cout << it - marr << endl;          // 1
     cout << distance(marr, it) << endl; // 1
+    cout << typeid(it).name();
+    // PNSt3__14pairIiNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEE
+}
+
+void t6() {
+    auto it = lower_bound(arr, arr + SIZE(arr), 4);
+    cout << typeid(it).name(); // Pi, ptr to int
 }
 
 int main(int argc, char const *argv[]) {
@@ -65,5 +72,6 @@ int main(int argc, char const *argv[]) {
     // t3();
     // t4();
     t5();
+    // t6();
     return 0;
 }

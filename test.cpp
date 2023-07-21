@@ -5,7 +5,7 @@ using ll = long long;
 
 void t1() { //
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     //
     t1();
     return 0;

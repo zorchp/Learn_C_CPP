@@ -10,9 +10,9 @@ using namespace std;
 
 class P {
 public:
-    P(){};
+    P() {}
 
-    ~P(){};
+    ~P() {}
 
     static void func() {
         ma = 100;
@@ -21,6 +21,7 @@ public:
 
     static void f2() { cout << "f2()\n"; }
 
+    int m_b;
     static int ma;
 };
 
