@@ -4,12 +4,15 @@ using namespace std;
 
 
 void t1() {
-    const char* cp;
+    const char* cp{};
     char* p = const_cast<char*>(cp);
     char* q = (char*)"123";
     p = q;
-    cout << p << endl;
-    cout << q << endl;
+    cout << p << endl; // 123
+    cout << q << endl; // 123
+    // SIGV
+    //  p[0] = '4';
+    //  q[0] = '4';
 }
 
 const string& cmp(const string& s1, const string& s2) {
@@ -30,7 +33,7 @@ void t2() {
 
 void t3() {
     string s3{"123"}, s4{"12"};
-    string ret_const = cmp(s3, s4); //此时直接赋值为非常量,可以修改
+    string ret_const = cmp(s3, s4); // 此时直接赋值为非常量,可以修改
     // auto ret_const = cmp(s3, s4); // 此时也可以修改
     // const string ret_const = cmp(s3, s4); // 此时不能修改
     cout << ret_const << endl;
@@ -45,9 +48,9 @@ void t3() {
 }
 
 int main(int argc, char const* argv[]) {
-    // t1();
+    t1();
     // t2();
-    t3();
+    // t3();
 
     return 0;
 }
