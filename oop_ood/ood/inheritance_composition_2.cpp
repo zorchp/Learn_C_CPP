@@ -13,7 +13,7 @@ public:
     ~Base() { cout << "dctor, base." << endl; }
 
 protected:
-    Component c; //父类具有复合关系
+    Component c; // 父类具有复合关系
 };
 
 
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-/*
+/* 先复合再继承最后子类
 ctor, Component.
 ctor, base.
 ctor, Derived.

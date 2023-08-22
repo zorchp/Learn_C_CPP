@@ -4,7 +4,7 @@ const long SIZE = 200;
 
 
 template <typename T>
-void output_ststic_data(const T& obj) {
+void output_static_data(const T& obj) {
     cout << obj << endl;
 }
 
@@ -12,7 +12,7 @@ void output_ststic_data(const T& obj) {
 template <typename T>
 using Vec = std::vector<T, allocator<T>>;
 
-template <typename T, template <class> class Container>
+template <typename T, template <typename U> class Container>
 class XCls {
 private:
     Container<T> c;
@@ -20,9 +20,9 @@ private:
 public:
     XCls() { // ctor
         for (long i = 0; i < SIZE; ++i) c.insert(c.end(), T("aa"));
-        output_ststic_data(*(c.begin()));
-        Container<T> c1(c);       // copy
-        Container<T> c2(move(c)); // move copy
+        output_static_data(*(c.begin()));
+        Container<T> c1(c);            // copy
+        Container<T> c2(std::move(c)); // move copy
         c1.swap(c2);
     }
 };

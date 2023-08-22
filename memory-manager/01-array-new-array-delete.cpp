@@ -103,12 +103,40 @@ void t5() {
     dtor. this=0x16dcc7060, id1=0
     */
 }
+void t6() {
+    int* p = new int[4];
+    for (int i{}; i < 4; ++i) p[i] = i + 1;
+    printf("%p\n", &p);
+    for (int i{}; i < 4; ++i) {
+        printf("%d\n", *(p + i));
+    }
+    delete p;
+    printf("%p\n", &p);
+    for (int i{}; i < 4; ++i) {
+        printf("%d\n", *(p + i));
+    }
+    /*
+0x16da9abf8
+1
+2
+3
+4
+0x16da9abf8
+1768915024
+62620
+2043
+0
+*/
+    // 说明即使不使用 delete[],
+    // 还是会清理所有的块(因为是栈内存, 并且连续)
+}
 
 int main(int argc, char const* argv[]) {
     // t1();
     // t2();
     // t3();
     // t4();
-    t5();
+    // t5();
+    t6();
     return 0;
 }

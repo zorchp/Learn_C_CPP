@@ -9,29 +9,29 @@ class Subject;
 
 class Observer {
 public:
-    //更新, 用来刷新(某一间隔)数据存储方的数据变动
+    // 更新, 用来刷新(某一间隔)数据存储方的数据变动
     virtual void update(Subject* sub, int val) = 0; // pure-virtual-func
 };
 
 
 class Subject {
-    //存放数据
+    // 存放数据
 private:
     int m_val;
     vector<Observer*> m_views; // delegation
 public:
     Subject(int val) : m_val(val) {}
-    int get_val() { //取值
+    int get_val() { // 取值
         return m_val;
     }
-    void attach(Observer* obs) { //放数据
+    void attach(Observer* obs) { // 放数据
         m_views.push_back(obs);
     }
-    void notify() { //通知, 数据发生变动
+    void notify() { // 通知, 数据发生变动
         for (int i = 0; i < m_views.size(); ++i)
             m_views[i]->update(this, m_val);
     }
-    void set_val(int val) { //设置
+    void set_val(int val) { // 设置
         m_val = val;
         notify();
     }
@@ -59,10 +59,10 @@ private:
 };
 
 void t1() {
-    //用Observer派生出任意多的子类用于观察
-    Obs1* o1    = new Obs1;
-    Obs2* o2    = new Obs2;
-    Subject* s1 = new Subject(100); //存数据,修改数据
+    // 用Observer派生出任意多的子类用于观察
+    Obs1* o1 = new Obs1;
+    Obs2* o2 = new Obs2;
+    Subject* s1 = new Subject(100); // 存数据,修改数据
     s1->attach(o1);
     s1->attach(o2);
     cout << "val=" << s1->get_val() << endl;
