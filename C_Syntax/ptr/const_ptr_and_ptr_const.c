@@ -68,9 +68,9 @@ void t4() {
     printf("p=%p,*p=%d.\n", p, *p);
 }
 
-void t5(){
-    const int a=10;
-    int *p=&a;
+void t5() {
+    const int a = 10;
+    // int* p = &a;
 }
 
 int main() {

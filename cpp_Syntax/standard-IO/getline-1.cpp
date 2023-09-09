@@ -37,9 +37,45 @@ void t3() {
     cout << "over...\n";
 }
 
+void t4() {
+    string s;
+    getline(cin, s);
+    stringstream ss(s);
+    string t;
+    int a;
+    ss >> t;
+    ss >> a;
+    cout << "t=" << t << endl;
+    cout << "a=" << a << endl;
+    // abc 12
+    // t=abc
+    // a=12
+}
+void t5() {
+    int a, b;
+    cin >> a >> b;
+    cin.ignore();
+    vector<pair<string, int>> aa;
+    for (int i{}; i < 3; ++i) {
+        string s;
+        getline(cin, s);
+        stringstream ss(s);
+        string t;
+        int a;
+        ss >> t;
+        ss >> a;
+        aa.emplace_back(t, a);
+    }
+    for (auto [a, b] : aa) {
+        cout << a << " " << b << endl;
+    }
+}
+
 int main(int argc, char const *argv[]) {
     // t1();
     // t2();
-    t3();
+    // t3();
+    // t4();
+    t5();
     return 0;
 }
