@@ -2,8 +2,8 @@
 
 class B1 {
 public:
-    B1();
-    virtual ~B1();
+    B1() {}
+    virtual ~B1() {}
     virtual void speak_clearly();
     virtual B1* clone() const;
 
@@ -12,8 +12,8 @@ protected:
 };
 class B2 {
 public:
-    B2();
-    virtual ~B2();
+    B2() {}
+    virtual ~B2() {}
     virtual void mumble();
     virtual B2* clone() const;
 
@@ -23,8 +23,8 @@ protected:
 
 class D : public B1, public B2 {
 public:
-    D();
-    virtual ~D();
+    D() {}
+    virtual ~D() {}
     virtual D* clone() const;
 
 protected:

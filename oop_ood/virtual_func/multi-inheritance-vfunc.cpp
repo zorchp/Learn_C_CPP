@@ -25,6 +25,17 @@ public:
 };
 } // namespace multi_inherit
 
+void t1() {
+    using namespace multi_inherit;
+    B1 b;
+    C c;
+    // cout << sizeof(b) << endl;  // 8
+    // cout << sizeof(c) << endl;  // 24
+    cout << sizeof(B1) << endl; // 8
+    cout << sizeof(B2) << endl;
+    cout << sizeof(B3) << endl;
+    cout << sizeof(C) << endl; // 24
+}
 
 namespace multi_inherit_with_virtual_base_class {
 class B1 {
@@ -50,17 +61,6 @@ public:
 } // namespace multi_inherit_with_virtual_base_class
 
 
-void t1() {
-    using namespace multi_inherit;
-    B1 b;
-    C c;
-    // cout << sizeof(b) << endl;  // 8
-    // cout << sizeof(c) << endl;  // 24
-    cout << sizeof(B1) << endl; // 8
-    cout << sizeof(B2) << endl;
-    cout << sizeof(B3) << endl;
-    cout << sizeof(C) << endl; // 24
-}
 void t2() {
     using namespace multi_inherit_with_virtual_base_class;
     cout << sizeof(B1) << endl; // 8
