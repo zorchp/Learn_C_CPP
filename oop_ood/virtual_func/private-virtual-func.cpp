@@ -1,4 +1,11 @@
 #include <iostream>
+
+#if __WORDSIZE == 64
+using TYPE = unsigned long long;
+#else
+using TYPE = int;
+#endif
+
 class B {
 private:
     virtual void f() { std::cout << "B::f()\n"; }
@@ -25,25 +32,33 @@ void t2() {
 
 void t3() {
     D d;
-    long pvtbl = *(long *)(&d);
-    long pf = *((long *)pvtbl);
+    TYPE pvtbl = *(TYPE *)(&d);
+    TYPE pf = *((TYPE *)pvtbl);
     FUNC f = (FUNC)pf;
     f(); // D::f()
 }
 
 void t4() {
     B b;
-    long pvtbl = *(long *)&b;
-    long pf = *((long *)pvtbl);
+    TYPE pvtbl = *(TYPE *)&b;
+    TYPE pf = *((TYPE *)pvtbl);
     FUNC f = (FUNC)pf;
     f(); // B::f()
 }
 
+void t5() {
+    B b;
+    TYPE pvtbl = *(TYPE *)&b;
+    FUNC f = *((FUNC *)pvtbl);
+    f(); // B::f()
+}
+
 int main(int argc, char *argv[]) {
-    t1();
+    // t1();
     // t2();
     // t3();
     // t4();
+    t5();
 
     return 0;
 }

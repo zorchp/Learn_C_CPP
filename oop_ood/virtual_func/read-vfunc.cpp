@@ -246,8 +246,16 @@ void t3() {
     // *((FUNC *)&f2)();
 }
 
+void t4() {
+    // c++ style cast:
+    A a;
+    TYPE vptr = *reinterpret_cast<TYPE *>(&a);
+    FUNC f = *reinterpret_cast<FUNC *>(vptr);
+    f();
+}
+
 int main(int argc, char *argv[]) {
-    t00();
+    // t00();
     // t0();
     // t10(); // 复习指针
     // t1();
@@ -255,5 +263,6 @@ int main(int argc, char *argv[]) {
     // t2();
     // t21();
     // t3();
+    t4();
     return 0;
 }

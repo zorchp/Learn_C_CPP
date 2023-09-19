@@ -1,2 +1,0 @@
-./t123.tx123/test.txt
-./test.txt
