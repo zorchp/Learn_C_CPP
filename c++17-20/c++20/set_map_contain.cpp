@@ -1,5 +1,4 @@
-// C++ program to illustrate the
-// above concepts
+// C++ program to illustrate the above concepts
 #include <iostream>
 #include <map>
 

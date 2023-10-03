@@ -1,5 +1,4 @@
-// C++ program to illustrate the
-// above concepts
+// C++ program to illustrate the above concepts
 #include <iostream>
 #include <vector>
 
@@ -10,4 +9,5 @@ int main() {
     for (std::vector v{1, 2, 3}; auto& e : v) {
         std::cout << e;
     }
+    // cout << v.size() << endl;
 }

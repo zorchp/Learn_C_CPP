@@ -7,9 +7,9 @@ using namespace std;
 void t1() {
     string s1 =
         "abc"
-        "ac";
+        "ac"; // ok
     cout << s1 << endl;
-    string s2 = 'a' 'b'; // error
+    // string s2 = 'a' 'b'; // error
 }
 int main(int argc, char *argv[]) {
     t1();
