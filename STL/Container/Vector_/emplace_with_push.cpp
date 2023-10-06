@@ -1,4 +1,3 @@
-#include <__utility/integer_sequence.h>
 #include <vector>
 
 using namespace std;

@@ -29,8 +29,8 @@ void t3() {
     std::cout << fib(6);
 }
 int main() {
-    // t1();
+    t1();
     // t2();
-    t3();
+    // t3();
     return 0;
 }
