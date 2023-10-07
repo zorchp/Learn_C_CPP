@@ -17,7 +17,7 @@ void t1_reference() {
     // printf("a=%p, b=%p\n", &a, &b);
 
     int c = 20;
-    b = c; //可以通过赋值改变大小, 但是指向的地址并没变
+    b = c; // ref可以通过赋值改变大小, 但是指向的地址并没变
     printf("a=%d, c=%d, b=%d\n", a, c, b);
     printf("a=%p, c=%p, b=%p\n", &a, &c, &b);
     /*
@@ -49,7 +49,7 @@ void const_ref_2() {
 void const_ref_3() {
     double a = 1.1;
     // int& c = a; // a是double类型，c是int，a赋值给 c时要生成一个临时变量
-    //也就是说c引用的是这个带有常性的临时变量，所以不能赋值。
+    // 也就是说c引用的是这个带有常性的临时变量，所以不能赋值。
     const int& b = a;
     printf("a=%f, b=%d\n", a, b);
     printf("a=%p, b=%p\n", &a, &b);
