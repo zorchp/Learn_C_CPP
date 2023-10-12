@@ -72,6 +72,6 @@ void t2() {
 
 int main(int argc, char *argv[]) {
     t1();
-    // t2();
+    t2();
     return 0;
 }
