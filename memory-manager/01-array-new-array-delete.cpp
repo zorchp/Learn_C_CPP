@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <complex>
+#include <new>
 using namespace std;
 
 void t1() {
@@ -37,6 +38,7 @@ void t3() {
     for (int i = 0; i < size; i++) new (tmp++) A(i); // ctor 3次, placement new
     cout << "buf=" << buf << ", tmp=" << tmp << endl;
 
+    // delete buf; // 1次dtor,id=0,第一个元素被析构
     delete[] buf; // 3次dtor,逆序
     /*
     default ctor. this=0x600000d31108, id=0
@@ -134,9 +136,9 @@ void t6() {
 int main(int argc, char const* argv[]) {
     // t1();
     // t2();
-    // t3();
+    t3();
     // t4();
     // t5();
-    t6();
+    // t6();
     return 0;
 }

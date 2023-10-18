@@ -119,9 +119,9 @@ void t22() {
     // breakpoint in malloc_error_break to debug
 }
 int main(int argc, char* argv[]) {
-    // t11();
+    t11();
     // t12();
     // t21();
-    t22();
+    // t22();
     return 0;
 }
