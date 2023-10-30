@@ -16,8 +16,15 @@ void t2() {
         printf("i=%d\n", i);
     }
 }
+
+void t3() {
+    for (int i = 0; i != 0; ++i) { // 不执行, 说明初始化变量之后, 会执行条件判断
+        printf("%d\n", i);
+    }
+}
 int main(int argc, char const *argv[]) {
     // t1();
-    t2();
+    // t2();
+    t3();
     return 0;
 }
