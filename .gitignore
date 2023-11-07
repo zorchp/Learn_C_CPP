@@ -1,4 +1,4 @@
-/**/.DS_Store
+**/.DS_Store
 *.dat
 
 # debug files
@@ -35,4 +35,4 @@
 # Executables
 *.exe
 *.out
-/**/*.app
+**/*.app

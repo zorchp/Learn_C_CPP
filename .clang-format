@@ -15,3 +15,7 @@ KeepEmptyLinesAtTheStartOfBlocks: true
 # AllowShortIfStatementsOnASingleLine: false
 # AllowShortLoopsOnASingleLine: false
 # AllowShortCaseLabelsOnASingleLine: false
+---
+Language: Proto
+# Don't format .proto files.
+DisableFormat: true
