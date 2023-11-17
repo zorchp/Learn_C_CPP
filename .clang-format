@@ -8,6 +8,8 @@ AlignAfterOpenBracket: true
 AlignOperands: true
 AlignTrailingComments: true
 MaxEmptyLinesToKeep: 2
+SeparateDefinitionBlocks: Always
+EmptyLineBeforeAccessModifier: LogicalBlock
 SpacesBeforeTrailingComments: 1
 KeepEmptyLinesAtTheStartOfBlocks: true
 # AllowShortBlocksOnASingleLine: false

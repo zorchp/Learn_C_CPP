@@ -4,10 +4,10 @@ C/C++ code when I learn them. Cite from some Books, Video Courses by Houjie[^1],
 
 # code format
 
-Code with formatting by `clang-format`, the `.clang-format` file can be found from [my-.clang-format-file](https://github.com/Apocaly-pse/dotfile/blob/main/sublime/.clang-format), batch processing by:
+Code with formatting by `clang-format`, batch processing by:
 
 ```bash
-find  -E . -regex '.*\.(cpp|h|cc|c)' | xargs clang-format -i --style="file:/Users/xxx/code/dotfile/sublime/.clang-format"
+find  -E . -regex '.*\.(cpp|h|cc|c)' | xargs clang-format -i --style=".clang-format"
 ```
 
 # Reference
@@ -16,5 +16,4 @@ find  -E . -regex '.*\.(cpp|h|cc|c)' | xargs clang-format -i --style="file:/User
 [^2]: [黑马 C++2017](https://www.bilibili.com/video/BV1Tb411j7uM);
 [^3]: [cppreference](https://en.cppreference.com/w/Main_Page);
 [^4]: C++ primer 5ed;
-[^5]: ;
-
+[^5]: Effective-C++ etc.;
