@@ -1,8 +1,12 @@
 #include <iostream>
 enum class shape_type { circle, triangle, rectangle };
+
 class shape {};
+
 class circle : public shape {};
+
 class triangle : public shape {};
+
 class rectangle : public shape {};
 
 shape* create_shape(shape_type type) {
@@ -30,7 +34,9 @@ void t1() {
 class shape_wrapper {
 public:
     explicit shape_wrapper(shape* ptr = nullptr) : ptr_(ptr) {}
+
     ~shape_wrapper() { delete ptr_; }
+
     shape* get() const { return ptr_; }
 
 private:
@@ -41,7 +47,6 @@ void foo() {
     shape_wrapper ptr_wrapper(create_shape(shape_type::circle));
     std::cout << ptr_wrapper.get();
 }
-
 
 int main(int argc, char* argv[]) {
     // t1();

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-// 存在依赖模板参数构造的对象, 需要加 template 标记
+// 存在依赖模板参数构造的对象, 需要加 .template 标记
 // 当前面存在依赖于模板参数的对象时, 才需要在模板内部使用`.template`
 // 标记(或者`->template` 标记), 这些标记仅能在模板中使用
 template <int N>
