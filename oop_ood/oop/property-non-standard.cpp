@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
     std::cout << p.age << std::endl;
     return 0;
 }
+
 /*
  ==> g++ -fdeclspec oop_ood/oop/property-non-standard.cpp
   √  ~/code/c-cpp_proj/Learn_C_Cpp

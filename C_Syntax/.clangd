@@ -1,3 +1,5 @@
-CompileFlags:
-  Add: [-xc, -std=c11]
-  Compiler: clang
+# CompileFlags:
+#   Add: [-xc, -std=c11]
+#   Compiler: clang
+#   Add: [-xc++, -std=c++20]
+#   Compiler: clang++
