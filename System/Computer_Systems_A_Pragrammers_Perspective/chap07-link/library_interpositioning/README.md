@@ -19,7 +19,12 @@ gcc -Wl,--wrap,malloc -Wl,--wrap,free -o intl int.o mymalloc_linktime.o
 
 ## 运行期打桩
 
-注意这里, 不能用 printf, 而要用 fprintf stderr, 这样不会写入缓冲区, 否则在 malloc 时候 printf 会递归调用导致段错误. 之前介绍过.
+注意mymalloc_runtime.c 这里, 不能用 printf, 而要用 fprintf stderr, 这样不会写入缓冲区, 否则在 malloc 时候 printf 会递归调用导致段错误. 之前介绍过.
+或者在使用 printf 之前加上:
+
+```c
+setbuf(stdout, NULL);
+```
 
 ```bash
 gcc -DRUNTIME -shared -fpic -o mymalloc.so mymalloc_runtime.c -ldl
