@@ -1,5 +1,6 @@
 #include <cassert>
 #include <cstdio>
+#include <cstring>
 #include <iostream>
 using namespace std;
 
@@ -8,14 +9,29 @@ using TYPE = unsigned long long;
 #else
 using TYPE = int;
 #endif
+template <typename T>
+void dump(T p) {
+    unsigned char bytes[sizeof(T)];
+    std::memcpy(bytes, &p, sizeof(T));
+
+    for (auto b : bytes) {
+        printf("%02x ", b);
+    }
+
+    printf("\n");
+}
 
 class A {
 public:
     int x;
     int y;
+
     virtual void f() { cout << "f() called !" << endl; };
+
     virtual void f1() { cout << "f1() called !" << endl; };
+
     virtual void f2() { cout << "f2() called !" << endl; };
+
     // private:
     void f3() {
         // x = 12;
@@ -31,11 +47,31 @@ void t00() {
     printf("%p\n", &A::f1);
     printf("%p\n", &A::f2);
     printf("%p\n", &A::f3); // private 函数不可以取成员函数指针
-    // 0x0
-    // 0x8
-    // 0x10
-    // 0x1005c4020
-    // why cout is 1
+    printf("%p\n", &A::x);
+    printf("%p\n", &A::y);
+    /*linux:
+    0x1
+    0x9
+    0x11
+    0x4025c0
+    0x8
+    0xc
+
+    macos:
+    0x0
+    0x8
+    0x10
+    0x1047fc794
+    0x8
+    0xc
+    */
+    cout << string(50, '-') << endl;
+    dump(&A::f);
+    dump(&A::f1);
+    dump(&A::f2);
+    dump(&A::f3);
+    cout << string(50, '-') << endl;
+
     cout << typeid(&A::x).name() << endl;  // M1Ai, int A::*
     cout << typeid(&A::f).name() << endl;  // M1AFvvE, void (A::*)()
     cout << typeid(&A::f1).name() << endl; // M1AFvvE, void (A::*)()
@@ -74,12 +110,12 @@ void t10() { // 复习: 二级指针间接寻址过程
     cout << typeid(arr).name() << endl;  // A3_i, int [3]
     cout << typeid(&arr).name() << endl; // PA3_i, int (*) [3]
     // arr 其实就是首地址, 值相同但是意义不同
-    int *p = (int *)arr; // lost size info
+    int* p = (int*)arr; // lost size info
     cout << *(p + 1) << endl;
     cout << *(p + 2) << endl;
     cout << *(arr + 1) << endl;
     cout << *(arr + 2) << endl;
-    int **pp = &p;
+    int** pp = &p;
     assert(p == arr);
     printf("arr=%p\n", arr);
     printf("p=%p\n", p);
@@ -90,12 +126,12 @@ void t10() { // 复习: 二级指针间接寻址过程
     // 需要进行以下操作:
     // 1. 通过二级指针找到数组的原始地址, 这里在 64 位机器下使用 ull
     // 类型作为指针大小执行转换
-    TYPE parr = *(TYPE *)pp;
+    TYPE parr = *(TYPE*)pp;
     // parr 是 ull 类型的值, 值就是 p 的地址, 也就是数组头的地址
-    int val1 = *(int *)parr; // 这里将数组头表示为数组内元素的指针,
-                             // 然后解引用获取到元素的值
-    int val2 = *((int *)parr + 1);
-    int val3 = *((int *)parr + 2);
+    int val1 = *(int*)parr; // 这里将数组头表示为数组内元素的指针,
+                            // 然后解引用获取到元素的值
+    int val2 = *((int*)parr + 1);
+    int val3 = *((int*)parr + 2);
     cout << val1 << endl;
     cout << val2 << endl;
     cout << val3 << endl;
@@ -110,6 +146,15 @@ void t10() { // 复习: 二级指针间接寻址过程
     // 18
     // 22
     // 43
+    int* new_p = (int*)parr;
+    cout << new_p[0] << endl;
+    cout << new_p[1] << endl;
+    cout << new_p[2] << endl;
+    /*等价写法:
+    18
+    22
+    43
+*/
 }
 
 void t1() {
@@ -117,18 +162,18 @@ void t1() {
     A a;
     cout << hex;
     cout << "address of a : " << &a << endl;
-    cout << "address of vtbl : " << *(TYPE *)(&a) << endl;
+    cout << "address of vtbl : " << *(TYPE*)(&a) << endl;
     // &a得到对象a的首地址，强制转换为(TYPE*)
     // 意为将从&a开始的sizeof(TYPE)个字节看作一个整体
     // 而&a就是这个sizeof(TYPE)字节整体的首地址 再解引用,
     // 最终得到由这sizeof(TYPE)个字节数据组成的地址 也就是虚表的地址。
-    TYPE vptr = *(TYPE *)(&a); // 其实相当于把地址(指针变量)强制类型转换为TYPE
-                               // 类型的值, 这个值其实就是虚指针的值(指针变量)
+    TYPE vptr = *(TYPE*)(&a); // 其实相当于把地址(指针变量)强制类型转换为TYPE
+                              // 类型的值, 这个值其实就是虚指针的值(指针变量)
     // 下面的转换指的是将 vptr 这个变量存储的地址信息变成数组指针,
     // 然后解引用得到第一个元素(即 TYPE 类型的指针),
     // 后续将其转换为函数指针进行调用
     cout << "vptr=" << vptr << endl;
-    TYPE pf = *(TYPE *)vptr;
+    TYPE pf = *(TYPE*)vptr;
     // 这一步转换是必要的, 将 vptr 指向的数组的首地址解引用出来
     cout << "pf=" << pf << endl;
     // vptr=1028701d8
@@ -136,12 +181,19 @@ void t1() {
     FUNC f = (FUNC)pf;
     f();
 
-    TYPE pf1 = *(TYPE *)(vptr + 1 * sizeof(TYPE));
-    TYPE pf2 = *(TYPE *)(vptr + 2 * sizeof(TYPE));
+    TYPE pf1 = *(TYPE*)(vptr + 1 * sizeof(TYPE));
+    TYPE pf2 = *(TYPE*)(vptr + 2 * sizeof(TYPE));
     FUNC f1 = (FUNC)pf1; // 转为函数指针
     FUNC f2 = (FUNC)pf2;
     f1();
     f2();
+    cout << string(50, '-') << endl;
+    // 下面的转换可读性更好
+
+    FUNC* vtbl = (FUNC*)vptr;
+    vtbl[0]();
+    vtbl[1]();
+    vtbl[2]();
 }
 
 void t11() { // for heap memory
@@ -150,45 +202,46 @@ void t11() { // for heap memory
     cout << hex;
     cout << "address of a : " << pa << endl;
     // cout << "address of vtbl : " << *(int *)(&a) << endl;
-    cout << "address of vtbl : " << *(TYPE *)pa << endl;
+    cout << "address of vtbl : " << *(TYPE*)pa << endl;
     // &a得到对象a的首地址，强制转换为(int*)
     // 意为将从&a开始的4个字节看作一个整体
     // 而&a就是这个4字节整体的首地址
     // 再通过“*”对这个整体进行解引用
     // 最终得到由这4个字节数据组成的地址
     // 也就是虚表的地址。
-    TYPE vptr = *(TYPE *)(pa); // 其实相当于把地址(指针变量)强制类型转换为TYPE
-                               // 类型的值, 这个值其实就是虚表的首地址
+    TYPE vptr = *(TYPE*)(pa); // 其实相当于把地址(指针变量)强制类型转换为TYPE
+                              // 类型的值, 这个值其实就是虚表的首地址
     // 虚表的地址, 其实也就是一个数组的首地址
-    TYPE pf = *(TYPE *)vptr;
+    TYPE pf = *(TYPE*)vptr;
     FUNC f = (FUNC)pf;
     f();
 
-    TYPE pf1 = *(TYPE *)(vptr + 1 * sizeof(TYPE));
-    TYPE pf2 = *(TYPE *)(vptr + 2 * sizeof(TYPE));
+    TYPE pf1 = *(TYPE*)(vptr + 1 * sizeof(TYPE));
+    TYPE pf2 = *(TYPE*)(vptr + 2 * sizeof(TYPE));
     FUNC f1 = (FUNC)pf1; // 转为函数指针
     FUNC f2 = (FUNC)pf2;
     f1();
     f2();
 }
-FUNC getvfunc(A *pa, int pos = 0) { return *((FUNC *)(*(TYPE *)pa) + pos); }
+
+FUNC getvfunc(A* pa, int pos = 0) { return *((FUNC*)(*(TYPE*)pa) + pos); }
 
 void t2() {
     A a;
-    TYPE vptr = *(TYPE *)&a;
-    auto pf1 = *((TYPE *)vptr + 1);
-    auto pf2 = *((TYPE *)vptr + 2);
+    TYPE vptr = *(TYPE*)&a;
+    auto pf1 = *((TYPE*)vptr + 1);
+    auto pf2 = *((TYPE*)vptr + 2);
     auto f1 = (FUNC)pf1; // 转为函数指针
     auto f2 = (FUNC)pf2;
     f1();
     f2();
     // 可以合成一步:
-    FUNC ff = *(FUNC *)(*(TYPE *)&a);
+    FUNC ff = *(FUNC*)(*(TYPE*)&a);
     ff();
     // 更进一步
-    (*(FUNC *)(*(TYPE *)&a))();
-    (*((FUNC *)(*(TYPE *)&a) + 1))();
-    (*((FUNC *)(*(TYPE *)&a) + 2))();
+    (*(FUNC*)(*(TYPE*)&a))();
+    (*((FUNC*)(*(TYPE*)&a) + 1))();
+    (*((FUNC*)(*(TYPE*)&a) + 2))();
     getvfunc(&a, 0)();
     getvfunc(&a, 1)();
     getvfunc(&a, 2)();
@@ -196,9 +249,9 @@ void t2() {
 
 void t21() {
     auto pa = new A;
-    TYPE vptr = *((TYPE *)pa);
-    auto pf1 = *((TYPE *)vptr + 1);
-    auto pf2 = *((TYPE *)vptr + 2);
+    TYPE vptr = *((TYPE*)pa);
+    auto pf1 = *((TYPE*)vptr + 1);
+    auto pf2 = *((TYPE*)vptr + 2);
     auto f1 = (FUNC)pf1; // 转为函数指针
     auto f2 = (FUNC)pf2;
     f1();
@@ -209,12 +262,12 @@ void t21() {
 
 void t3() {
     A a1, a2;
-    TYPE vptr1 = *(TYPE *)&a1;
-    auto pf1 = *((TYPE *)vptr1 + 1);
+    TYPE vptr1 = *(TYPE*)&a1;
+    auto pf1 = *((TYPE*)vptr1 + 1);
     auto f1 = (FUNC)pf1;
     f1();
-    TYPE vptr2 = *(TYPE *)&a2;
-    auto pf2 = *((TYPE *)vptr2 + 1);
+    TYPE vptr2 = *(TYPE*)&a2;
+    auto pf2 = *((TYPE*)vptr2 + 1);
     auto f2 = (FUNC)pf2;
     f2();
     // 同一个类的不同对象,
@@ -240,7 +293,7 @@ void t3() {
     // assert(&f1 == &f2);
     printf("%#lx\n", &f1);
     printf("%#lx\n", &f2);
-    FUNC *pp = &f1;
+    FUNC* pp = &f1;
     (*pp)();
     // *(FUNC(*) & f1)();
     // *((FUNC *)&f2)();
@@ -249,12 +302,41 @@ void t3() {
 void t4() {
     // c++ style cast:
     A a;
-    TYPE vptr = *reinterpret_cast<TYPE *>(&a);
-    FUNC f = *reinterpret_cast<FUNC *>(vptr);
+    TYPE vptr = *reinterpret_cast<TYPE*>(&a);
+    FUNC f = *reinterpret_cast<FUNC*>(vptr);
     f();
 }
 
-int main(int argc, char *argv[]) {
+void print_vtbl_all() {
+    A a;
+    auto pa = &a;
+    TYPE vptr = *(TYPE*)pa;
+    FUNC* vtbl = (FUNC*)vptr;
+    cout << hex;
+    cout << "address of a : " << pa << endl;
+    cout << "address of vtbl : " << vptr << endl;
+    vtbl[0]();
+    vtbl[1]();
+    vtbl[2]();
+
+    // Itanium C++ ABI 规定虚表在 vptr 指向位置之前还有两个隐藏 slot:
+    //   vtbl[-2] : offset_to_top (ptrdiff_t)
+    //   vtbl[-1] : type_info*    (指向 std::type_info)
+    // 这两个 slot 不是函数指针, 直接当 FUNC 打印只会看到裸地址,
+    // 需要按真实类型 reinterpret 才能解码出有意义的内容.
+    TYPE* raw = (TYPE*)vptr;
+    ptrdiff_t offset_to_top = *(ptrdiff_t*)(raw - 2);
+    const std::type_info* ti = *(const std::type_info**)(raw - 1);
+
+    cout << string(50, '-') << endl;
+    cout << "offset_to_top = " << dec << offset_to_top << endl;
+    cout << "type_info addr = " << hex << ti << endl;
+    cout << "type_info name = " << ti->name() << endl; // 1A, class A
+    cout << "type_info hash_code = " << ti->hash_code()
+         << endl; // 11f945f95ffcb9ad
+}
+
+int main(int argc, char* argv[]) {
     // t00();
     // t0();
     // t10(); // 复习指针
@@ -263,6 +345,8 @@ int main(int argc, char *argv[]) {
     // t2();
     // t21();
     // t3();
-    t4();
+    // t4();
+    print_vtbl_all();
     return 0;
 }
+
